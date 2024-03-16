@@ -1,0 +1,1109 @@
+---
+title: "Módulo 3: Introducción al `tidyverse`"
+title-slide-attributes:
+  data-background-image: images/icon.png
+  data-background-size: contain
+  data-background-opacity: "0.2"
+author: 
+  - name: Mauricio Moreno, PhD
+logo: images/icon.png
+format: 
+  revealjs:
+    slide-number: true
+    width: 1366
+    preview-links: auto
+    touch: true
+    chalkboard:
+      theme: whiteboard
+      boardmarker-width: 4
+      buttons: false
+    revealjs-plugins:
+      - pointer
+editor: visual
+---
+
+# Antes de comenzar!
+
+## Tipos de tablas
+
+-   Existen básicamente dos tipos de tablas de datos de acuerdo a su formato: ancho (*wide format*) y largo (*long format*)
+
+![[Figura tomada de listendata.com](https://www.listendata.com/2016/01/r-convert-data-from-wide-to-long-format.html){target="_blank"}](images/convert.png){fig-align="center"}
+
+## Datos ordenados (*Tidy data*) {.smaller}
+
+::: incremental
+-   Cuando llevamos registro de datos es muy común usar tablas de Excel.
+
+-   Por la libertad que tenemos en este software, es fácil el dejarnos llevar por prácticas que luego nos causarán dolores de cabeza.
+
+-   Por ello me parece importante el mencionar unas cuantas sugerencias para llevar el registro de datos:
+
+    -   Consistencia
+
+    -   Escoge buenos nombres
+
+    -   Escribir fechas en formato ISO 8601
+
+    -   Evitar filas/celdas vacías donde no son necesarias
+
+    -   Pon una sola cosa a la vez
+
+    -   Evita usar resaltador/colores de fuentes
+:::
+
+::: footer
+La mayor parte de ejemplos aquí tomados provienen de [*Data organization in Spreadsheets*](https://www.tandfonline.com/doi/full/10.1080/00031305.2017.1375989){target="_blank"} y las figuras del curso [*Tidyverse Skills for Data Science*](https://jhudatascience.org/tidyversecourse/){target="\_blank".
+:::
+
+## Consistencia
+
+![](images/consistent.png){fig-align="center"}
+
+## Escoge buenos nombres {.smaller}
+
+::: incremental
+-   Como ya habíamos mencionado, R puede presentar problemas con el nombre que le asignemos a nuestras columnas ("variables"):
+
+    -   Si comienza con un número, antepondrá `X.` al nombre de la columna
+
+    -   Si tiene caracteres especiales, puede dar problemas en el espaciado o de lectura
+
+-   Adicionalmente, podemos mencionar las siguientes recomendaciones
+:::
+
+. . .
+
++-----------------------------------------------+-------------------+-------------------+
+|                                               | Esto está bien    | Evita esto!       |
++===============================================+===================+===================+
+| Espacios extras                               | `"masculino"`     | `"masculino "`    |
++-----------------------------------------------+-------------------+-------------------+
+| Usa guiones bajos en lugar de espacios vacíos | `cultivo_control` | `cultivo control` |
++-----------------------------------------------+-------------------+-------------------+
+| Usa nombres informativos                      | `cultivo_control` | `C1`              |
++-----------------------------------------------+-------------------+-------------------+
+
+## Fechas en formato ISO 8601
+
+::: incremental
+-   Ya habíamos mencionado anteriormente que dar formato a fechas puede resultar difícil (aunque no imposible).
+
+-   Como parte de la consistencia, es recomendable que cuando trabajamos con fechas, registrarlas como "YYYY-MM-DD".
+
+-   Este formato es conocido como ISO 8601 y es reconocido sin problema por R (y otros lenguajes).
+
+-   Dependiendo de la configuración de nuestro ordenador, a veces fechas en Excel como "14-Feb-23" pueden ser reconocidas automáticamente.
+:::
+
+## Evitar filas/celdas vacías
+
+![](images/celdas.png){fig-align="center"}
+
+## Una sola cosa a la vez
+
+![](images/cosa.png){fig-align="center"}
+
+## Evita resaltar/cambiar colores
+
+![](images/resalta.png){fig-align="center"}
+
+## Ejemplos de tablas "problemáticas"
+
+![](images/tab_prob1.png){fig-align="center"}
+
+## Ejemplos de tablas "problemáticas" {visibility="uncounted"}
+
+![](images/tab_prob2.png){fig-align="center"}
+
+## Principios de datos ordenados
+
+::: incremental
+-   Propuestos por [Hadley Wickham](https://en.wikipedia.org/wiki/Hadley_Wickham){target="_blank"} en su artículo titulado [*Tidy Data*](https://www.jstatsoft.org/article/view/v059i10){target="_blank"}.
+
+-   Son sugerencias que Wickham formula para harmonizar la manera de registrar datos y su posterior procesamiento en modelos de ciencias de datos (discutiblemente estas sugerencias ya existían inherentemente en el lenguaje SQL).
+
+-   Tiene como premisa el arreglo de los datos en formato ancho (o también conocido como rectangular).
+
+-   Las tablas rectangulares nacen de nuestra predisposición a registrar datos de esta manera.
+:::
+
+## Principio 1: Una columna por variable
+
+![](images/principio1.png){fig-align="center"}
+
+## Principio 2: Una observación por fila
+
+![](images/principio2.png){fig-align="center"}
+
+## Principio 3: Una hoja de datos por tipo de datos
+
+![](images/principio3.png){fig-align="center"}
+
+## Principio 4: Una variable con un identificador
+
+![](images/principio4.png){fig-align="center"}
+
+# El `tidyverse`
+
+<!-- ##  {data-menu-title="Introducción" visibility="uncounted"} -->
+
+## Introducción
+
+::: columns
+::: {.column .fragment width="80%"}
+::: incremental
+-   [tidyverse](https://www.tidyverse.org/){target="_blank"} es una colección de paquetes de R diseñados para la ciencia de datos creada originalmente por Wickham.
+
+-   Para su instalación usaremos la sintaxis que ya hemos aprendido en el módulo 1 (`install.packages("tidyverse")`).
+
+-   Al momento, comprende 8 paquetes. De estos los que más usaremos son:
+
+    -   `dplyr`: conjunto de funciones para arreglo y "manipulación" de datos
+
+    -   `ggplot2`: el paquete de ploteo por excelencia de R.
+:::
+:::
+
+::: {.column width="20%"}
+::: {layout="[[-1], [1], [-1]]"}
+![](images/hex-tidyverse.png){fig-align="center"}
+:::
+:::
+:::
+
+## Operador de cascada (*pipeline operator*) {.smaller}
+
+::: incremental
+-   Antes de comenzar directamente con `dplyr`, daremos un vistazo al operador de cascada: `%>%`.
+
+-   Entendamos a `%>%` como la palabra "entonces". En términos sencillos, es algo como: "Tengo harina `%>%` hago pan"
+
+-   En lenguaje R, esto se interpreta como si tuvieramos un objeto `A` sobre el cual deseamos aplicar una función `B`. Esto se vería como: `B(A)`
+
+-   Alternativamente, podemos expresarlo como `A %>% B`.
+
+-   Ahora supongamos que tengo un objeto sobre el cual quiero llevar a cabo más funciones en una determinada secuencia, quiero sobre `A` hacer las funciones `B`, `C`, `D`.
+
+-   En base R, esto se vería cómo `D(C(B(A)))`
+
+-   O, alternativamente `A %>% B %>% C %>% D`
+
+-   Noten como el uso `%>%` nos facilita la interpretación de la secuencia de acciones.
+:::
+
+## Filtrando filas {.smaller}
+
+Aquí, vamos a utilizar la tabla de datos `msleep` contenida en `ggplot2`.
+
+```{r echo=T, eval=F}
+#| code-line-numbers: "1|2"
+library(ggplot2)
+head(msleep)
+```
+
+## Filtrando filas {.smaller visibility="uncounted" auto-animate="true"}
+
+Aquí, vamos a utilizar la tabla de datos `msleep` contenida en `ggplot2`.
+
+```{r echo=T, eval=T}
+library(ggplot2)
+head(msleep)
+```
+
+. . .
+
+Supongamos que solo estamos interesados en las observaciones del orden "Primates":
+
+```{r echo=T, eval=F}
+#| code-line-numbers: "1|2|3"
+library(dplyr)
+msleep %>%
+  filter(order == "Primates")
+```
+
+## Filtrando filas {.smaller visibility="uncounted" auto-animate="true"}
+
+Aquí, vamos a utilizar la tabla de datos `msleep` contenida en `ggplot2`.
+
+```{r echo=T, eval=F}
+library(ggplot2)
+head(msleep)
+```
+
+Supongamos que solo estamos interesados en las observaciones del orden "Primates":
+
+```{r echo=T, eval=T}
+library(dplyr)
+msleep %>%
+  filter(order == "Primates")
+```
+
+## Filtrando filas {.smaller visibility="uncounted" auto-animate="true"}
+
+Ya que hemos filtrado a las observaciones de los "Primates", ¿qué tal si estuviéramos interesados solamente en aquellas que las horas totales de sueño son mayores o iguales a 10?
+
+```{r echo=T, eval=F}
+#| code-line-numbers: "2"
+msleep %>%
+  filter(order == "Primates", sleep_total >= 10)
+```
+
+## Filtrando filas {.smaller visibility="uncounted" auto-animate="true"}
+
+Ya que hemos filtrado a las observaciones de los "Primates", ¿qué tal si estuviéramos interesados solamente en aquellas que las horas totales de sueño son mayores o iguales a 10?
+
+```{r echo=T, eval=T}
+msleep %>%
+  filter(order == "Primates", sleep_total >= 10)
+```
+
+## Antes de countinuar: Tibbles {.smaller}
+
+::: incremental
+-   Cómo te habras dado cuenta, en el prompt de R vemos que la tabla es llamada `# A tibble`.
+
+-   Un `tibble` es una version de tablas de datos generada por el paquete del mismo nombre que a su vez es parte del `tidyverse`.
+
+-   Las diferencias con las clásicas tablas de datos son:
+
+    -   Por default, al llamar un `tibble`, se imprimen únicamente las primeras diez filas de la tabla.
+
+    -   Los `tibbles` son más sensibles a errores del programador. Esto es una ventaja al ofrecer un ambiente menos propenso a errores.
+
+    -   Para operaciones complejas (sobre todo en tablas muy grandes) como unir varias tablas, crear nuevas variables, etc. los `tibbles` son más eficientes.
+:::
+
+## Seleccionando columnas {.smaller}
+
+::: incremental
+-   En un `tibble` se aplican también las reglas de indexación que vimos anteriormente al igual que el operando `$`.
+
+-   Sin embargo, implementar este tipo de sintaxis en una cascada es difícil (aunque no imposible).
+
+-   En el caso de seleccionar columnas, tenemos la función `select` de `dplyr`
+:::
+
+. . .
+
+```{r echo=T, eval=F}
+#| code-line-numbers: "3"
+msleep %>%
+  filter(order == "Primates", sleep_total >= 10) %>%
+  select(name, sleep_total, sleep_rem, sleep_cycle)
+```
+
+## Seleccionando columnas {.smaller visibility="uncounted" auto-animate="true"}
+
+-   En un `tibble` se aplican también las reglas de indexación que vimos anteriormente al igual que el operando `$`.
+
+-   Sin embargo, implementar este tipo de sintaxis en una cascada es difícil (aunque no imposible).
+
+-   En el caso de seleccionar columnas, tenemos la función `select` de `dplyr`
+
+```{r echo=T, eval=T}
+msleep %>%
+  filter(order == "Primates", sleep_total >= 10) %>%
+  select(name, sleep_total, sleep_rem, sleep_cycle)
+```
+
+## Cambiando el nombre a columnas {auto-animate="true"}
+
+```{r echo=T, eval=F}
+#| code-line-numbers: "3"
+msleep %>%
+  filter(order == "Primates", sleep_total >= 10) %>%
+  select(name, total = sleep_total, rem = sleep_rem, cycle = sleep_cycle)
+```
+
+## Cambiando el nombre a columnas {visibility="uncounted" auto-animate="true"}
+
+```{r echo=T, eval=T}
+msleep %>%
+  filter(order == "Primates", sleep_total >= 10) %>%
+  select(name, total = sleep_total, rem = sleep_rem, cycle = sleep_cycle)
+```
+
+## Reordenando columnas {auto-animate="true"}
+
+```{r echo=T, eval=F}
+#| code-line-numbers: "3"
+msleep %>%
+  filter(order == "Primates", sleep_total >= 10) %>%
+  select(name, sleep_rem, sleep_cycle, sleep_total)
+```
+
+## Reordenando columnas {visibility="uncounted" auto-animate="true"}
+
+```{r echo=T, eval=T}
+msleep %>%
+  filter(order == "Primates", sleep_total >= 10) %>%
+  select(name, sleep_rem, sleep_cycle, sleep_total)
+```
+
+## Reordenando filas {auto-animate="true"}
+
+**Variable numérica**
+
+```{r echo=T, eval=F}
+#| code-line-numbers: "4"
+msleep %>%
+  filter(order == "Primates", sleep_total >= 10) %>%
+  select(name, sleep_rem, sleep_cycle, sleep_total) %>%
+  arrange(sleep_total)
+```
+
+## Reordenando filas {visibility="uncounted" auto-animate="true"}
+
+**Variable numérica**
+
+```{r echo=T, eval=T}
+msleep %>%
+  filter(order == "Primates", sleep_total >= 10) %>%
+  select(name, sleep_rem, sleep_cycle, sleep_total) %>%
+  arrange(sleep_total)
+```
+
+## Reordenando filas {visibility="uncounted" auto-animate="true"}
+
+**Variable numérica en orden descendente**
+
+```{r echo=T, eval=T}
+#| code-line-numbers: "4"
+msleep %>%
+  filter(order == "Primates", sleep_total >= 10) %>%
+  select(name, sleep_rem, sleep_cycle, sleep_total) %>%
+  arrange(desc(sleep_total))
+```
+
+## Reordenando filas {visibility="uncounted" auto-animate="true"}
+
+**Variable categórica**
+
+```{r echo=T, eval=T}
+#| code-line-numbers: "4"
+msleep %>%
+  filter(order == "Primates", sleep_total >= 10) %>%
+  select(name, sleep_rem, sleep_cycle, sleep_total) %>%
+  arrange(name)
+```
+
+## Reordenando filas {visibility="uncounted" auto-animate="true"}
+
+**Variable categórica y numérica**
+
+```{r echo=T, eval=T}
+#| code-line-numbers: "4"
+msleep %>%
+  filter(order == "Primates", sleep_total >= 10) %>%
+  select(name, sleep_rem, sleep_cycle, sleep_total) %>%
+  arrange(desc(name), sleep_cycle)
+```
+
+## Creando nuevas columnas {auto-animate="true"}
+
+```{r echo=T, eval=F}
+#| code-line-numbers: "5"
+msleep %>%
+  filter(order == "Primates", sleep_total >= 10) %>%
+  select(name, sleep_rem, sleep_cycle, sleep_total) %>%
+  arrange(desc(name), sleep_cycle) %>%
+  mutate(sleep_total_min = sleep_total * 60)
+```
+
+## Creando nuevas columnas {visibility="uncounted" auto-animate="true"}
+
+```{r echo=T, eval=T}
+msleep %>%
+  filter(order == "Primates", sleep_total >= 10) %>%
+  select(name, sleep_rem, sleep_cycle, sleep_total) %>%
+  arrange(desc(name), sleep_cycle) %>%
+  mutate(sleep_total_min = sleep_total * 60)
+```
+
+## Separando columnas {.smaller}
+
+::: incremental
+-   Idealmente, deberíamos tratar de contar con un solo tipo de información por columna ("Una sola cosa a la vez", slide #9)
+
+-   Sin embargo, sobretodo cuando recibimos datos de terceros, nos podemos encontrar con este problema.
+
+-   Si el registro de datos fue consistente, es posible separarlo fácilmente usando la función `separate` de `tidyr`
+
+-   `tidyr` es otro paquete del `tidyverse` que ofrece funciones complementarias para manejo de tablas.
+
+-   Se diferencia de `dplyr` en que sus funciones están más enfocadas en brindar transformaciones de formatos de tablas.
+
+-   Para ilustrar su uso, supongamos que dos variables de la tabla `msleep` fueron combinadas en su registro:
+:::
+
+. . .
+
+```{r echo=T, eval=F}
+#| code-line-numbers: "1|2|3|4"
+ej_separate <- msleep
+ej_separate$genus_vore <- paste0(ej_separate$genus, "-", ej_separate$vore)
+ej_separate <- ej_separate[, c(1, 12)]
+head(ej_separate)
+```
+
+## Separando columnas {.smaller visibility="uncounted" auto-animate="true"}
+
+-   Idealmente, deberíamos tratar de contar con un solo tipo de información por columna ("Una sola cosa a la vez", slide #9)
+
+-   Sin embargo, sobretodo cuando recibimos datos de terceros, nos podemos encontrar con este problema.
+
+-   Si el registro de datos fue consistente, es posible separarlo fácilmente usando la función `separate` de `tidyr`
+
+-   `tidyr` es otro paquete del `tidyverse` que ofrece funciones complementarias para manejo de tablas.
+
+-   Se diferencia de `dplyr` en que sus funciones están más enfocadas en brindar transformaciones de formatos de tablas.
+
+-   Para ilustrar su uso, supongamos que dos variables de la tabla `msleep` fueron combinadas en su registro:
+
+```{r echo=T, eval=T}
+ej_separate <- msleep
+ej_separate$genus_vore <- paste0(ej_separate$genus, "-", ej_separate$vore)
+ej_separate <- ej_separate[, c(1, 12)]
+head(ej_separate)
+```
+
+## Separando columnas {.smaller visibility="uncounted" auto-animate="true"}
+
+```{r echo=T, eval=T}
+head(ej_separate)
+```
+
+. . .
+
+-   En esta variable `genus_vore` vemos que la información de dos cosas se encuentran separadas por el caracter `-`. Veamos entonces como podemos separarlas en dos columnas distintas con la ayuda de `tidyr`:
+
+. . .
+
+```{r echo=T, eval=F}
+#| code-line-numbers: "1|3-4"
+library(tidyr)
+ej_separate %>%
+  separate(`genus_vore`,
+           into = c("genus", "vore"), sep = "-")
+```
+
+## Separando columnas {.smaller visibility="uncounted" auto-animate="true"}
+
+```{r echo=T, eval=T}
+head(ej_separate)
+```
+
+-   En esta variable `genus_vore` vemos que la información de dos cosas se encuentran separadas por el caracter `-`. Veamos entonces como podemos separarlas en dos columnas distintas con la ayuda de `tidyr`:
+
+```{r echo=T, eval=T}
+library(tidyr)
+ej_separate %>%
+  separate(`genus_vore`,
+           into = c("genus", "vore"), sep = "-")
+```
+
+## Combinando columnas {.smaller auto-animate="true"}
+
+```{r echo=T, eval=F}
+#| code-line-numbers: "4"
+ej_separate %>%
+  separate(`genus_vore`,
+           into = c("genus", "vore"), sep = "-") %>%
+  unite(new_genus_vore, genus, vore, sep = "_")
+```
+
+## Combinando columnas {.smaller auto-animate="true"}
+
+```{r echo=T, eval=T}
+ej_separate %>%
+  separate(`genus_vore`,
+           into = c("genus", "vore"), sep = "-") %>%
+  unite(new_genus_vore, genus, vore, sep = "_")
+```
+
+## Resumiendo datos {.smaller}
+
+::: incremental
+-   Una de las funcionalidades más importantes de `dplyr` es el poder resumir datos (o en otras palabras el aplicar funciones sobre variables en la tabla).
+
+-   Para ello usamos la función `summarise` (o `summarize`).
+:::
+
+. . .
+
+```{r echo=T, eval=F}
+#| code-line-numbers: "2|3"
+msleep %>%
+  select(name) %>%
+  summarise(conteo = n())
+```
+
+## Resumiendo datos {.smaller visibility="uncounted" auto-animate="true"}
+
+-   Una de las funcionalidades más importantes de `dplyr` es el poder resumir datos (o en otras palabras el aplicar funciones sobre variables en la tabla).
+
+-   Para ello usamos la función `summarise` (o `summarize`).
+
+```{r echo=T, eval=T}
+msleep %>%
+  filter(order == "Carnivora") %>%
+  summarise(conteo = n())
+```
+
+. . .
+
+-   Filtrar por cada uno de los niveles de `order` es ineficiente y tedioso.
+
+. . .
+
+-   En su lugar usaremos `group_by`
+
+. . .
+
+```{r echo=T, eval=F}
+#| code-line-numbers: "2|3"
+msleep %>%
+  group_by(order) %>%
+  summarise(conteo = n())
+```
+
+## Resumiendo datos {.smaller visibility="uncounted" auto-animate="true"}
+
+-   Una de las funcionalidades más importantes de `dplyr` es el poder resumir datos (o en otras palabras el aplicar funciones sobre variables en la tabla).
+
+-   Para ello usamos la función `summarise` (o `summarize`).
+
+```{r echo=T, eval=T}
+msleep %>%
+  filter(order == "Carnivora") %>%
+  summarise(conteo = n())
+```
+
+-   Filtrar por cada uno de los niveles de `order` es ineficiente y tedioso.
+
+-   En su lugar usaremos `group_by`
+
+```{r echo=T, eval=T}
+msleep %>%
+  group_by(order) %>%
+  summarise(conteo = n())
+```
+
+## Resumiendo datos {.smaller visibility="uncounted" auto-animate="true"}
+
+-   En `summarise` podemos usar todas las operaciones estadísticas básicas de base, así como también funciones de paquetes externos.
+
+. . .
+
+```{r echo=T, eval=F}
+#| warning: false
+#| code-line-numbers: "1|4-12"
+library(modeest)
+msleep %>%
+  group_by(order) %>%
+  summarise(conteo = n(), 
+            media = mean(sleep_total),
+            desv.est. = sd(sleep_total),
+            minimo = min(sleep_total),
+            maximo = max(sleep_total),
+            moda = mlv(sleep_total, method = "hsm", na.rm = T),
+            q1 = quantile(sleep_total, probs = 0.25),
+            mediana = quantile(sleep_total, probs = 0.5),
+            q3 = quantile(sleep_total, probs = 0.75))
+```
+
+## Resumiendo datos {.smaller visibility="uncounted" auto-animate="true"}
+
+-   En `summarise` podemos usar todas las operaciones estadísticas básicas
+
+```{r echo=T, eval=T}
+#| warning: false
+library(modeest)
+msleep %>%
+  group_by(order) %>%
+  summarise(conteo = n(), 
+            media = mean(sleep_total),
+            desv.est. = sd(sleep_total),
+            minimo = min(sleep_total),
+            maximo = max(sleep_total),
+            moda = mlv(sleep_total, method = "hsm"),
+            q1 = quantile(sleep_total, probs = 0.25),
+            mediana = quantile(sleep_total, probs = 0.5),
+            q3 = quantile(sleep_total, probs = 0.75))
+```
+
+## Autoevaluación {.smaller}
+
++-----------------------------------------------------------------------------------------------------+------------+
+| 1.  El operador de cascada de base R es `|>`                                                        | V/F        |
++-----------------------------------------------------------------------------------------------------+------------+
+| 2.  Este es un buen nombre para un objeto en R: `Ingresos Anuales`                                  | V/F        |
++-----------------------------------------------------------------------------------------------------+------------+
+| 3.  Cuando digo que una tabla está en formato largo, puedo decir que es rectangular                 | V/F        |
++-----------------------------------------------------------------------------------------------------+------------+
+| 4.  `Z` es una función, `Y` es un objeto. Con la expr. `Y(Z)` estoy evaluando `Y` en función de `Z` | V/F        |
++-----------------------------------------------------------------------------------------------------+------------+
+| 5.  La tabla de datos `msleep` se refiere a las horas de sueño de mamíferos                         | V/F        |
++-----------------------------------------------------------------------------------------------------+------------+
+
+## Autoevaluación {.smaller visibility="uncounted"}
+
++----------------------------------------------------------------------------------------------------------------+-----------+
+| 6.  Estas expresiones dan el mismo resultado:                                                                  | V/F       |
+|                                                                                                                |           |
+| `msleep %>% filter(order == "Primates" | sleep_total >= 10)`                                                   |           |
+|                                                                                                                |           |
+| `msleep %>% filter(order == "Primates", sleep_total >= 10)`                                                    |           |
++----------------------------------------------------------------------------------------------------------------+-----------+
+| 7.  Esta expresión filtra la tabla `iris` excluyendo la categoría `virginica` de la columna `Species`          | V/F       |
+|                                                                                                                |           |
+| `iris %>% filter(Species != "virginica")`                                                                      |           |
++----------------------------------------------------------------------------------------------------------------+-----------+
+| 8.  En la anterior expresión **NO** estoy haciendo cambios en la tabla `iris`                                  | V/F       |
++----------------------------------------------------------------------------------------------------------------+-----------+
+| 9.  Deseo calcular la suma de `Petal.Width` por `Species` de la tabla iris. Es correcta la siguiente expresión | V/F       |
+|                                                                                                                |           |
+| `iris %>% filter(Species) %>% summarize(suma = sum())`                                                         |           |
++----------------------------------------------------------------------------------------------------------------+-----------+
+
+# Importación y exportación de datos
+
+## Introducción {.smaller}
+
+::: incremental
+-   Existen varias funciones base para importar datos (`read.table`, `read.csv`, `read.csv2` y más).
+
+-   Una limitación de estas es que no son compatibles con el formato más usado: Excel.
+
+-   Dentro del `tidyverse` contamos con los paquetes `readr` y `readxl` que ofrecen funciones para importar tablas de archivos en varios formatos, incluyendo Excel.
+
+-   Las extensiones de tablas más comunes son:
+
+    -   .csv: *comma separated values*, o valores separados por comas (aunque las comas no son un requisito)
+
+    -   .txt: archivos de texto (como los producidos por notepad en Windows)
+
+    -   .xlsx: archivos de Excel
+
+-   R también es capaz de importar tablas de otro tipo de software, por ejemplo SAS, SPSS o minitab. Pero para ello requiere de otros paquetes fuera del `tidyverse`.
+:::
+
+## Preparando el ambiente de trabajo {.smaller}
+
+1)  Crea una carpeta por cada proyecto de trabajo en R en donde tu desees. Puede ser algo como:
+
+![](images/directorio.png){fig-align="center" height="75"}
+
+. . .
+
+2)  Ingresa a la sección de ["Materiales y recursos"](https://mmorenozam.github.io/progR-website/materiales.html){target="_blank"} del curso y descarga el archivo comprimido datos.zip.
+
+. . .
+
+3)  Extrae los archivos en el directorio que creaste.
+
+![](images/directorio2.png){fig-align="center" height="250"}
+
+## Preparando el ambiente de trabajo {.smaller visibility="uncounted"}
+
+4)  En R, crea un nuevo script donde en la primera línea utilizaremos la función `setwd`
+
+::: incremental
+-   `setwd` nos permitirá predeterminar la ubicación de nuestro directorio de trabajo.
+
+-   Como argumento, utiliza la dirección del directorio.
+
+    -   Podemos copiar la dirección desde el explorador de Windows
+
+    -   ó, podemos guardar el archivo de R en nuestro directorio, y obtener la dirección desde la sesión de RStudio
+
+-   En mi caso, la primera línea de este archivo de R queda de la siguiente forma:
+:::
+
+. . .
+
+```{r echo=T, eval=F}
+setwd("C:/Users/mmore/Documents/curso_estadistica/ejemplos")
+```
+
+. . .
+
+-   De esta manera, los objetos que importemos y exportemos dentro de la sesión de R con este archivo serán contenidos en nuestro directorio de trabajo.
+
+. . .
+
+5)  Guarda el archivo de R en el directorio que creaste (en caso de no haberlo hecho antes).
+
+## Importando archivos .csv
+
+![](images/comma.png){fig-align="center"}
+
+## Importando archivos .csv {.smaller visibility="uncounted"}
+
+::: incremental
+-   Para esta sección utilizaremos como ejemplo los datos del [Prof. Touchon](https://www.jstor.org/stable/23436298){target="_blank"} acerca de una investigación de recursos por depredación en ranas arbóreas de ojos rojos en Panamá.
+:::
+
+. . .
+
+![](images/frog.jpg){fig-align="center"}
+
+## Importando archivos .csv {.smaller visibility="uncounted" auto-animate="true"}
+
+**R base**
+
+```{r echo=T, eval=F}
+#| code-line-numbers: "1|3|4"
+setwd("C:/Users/mmore/Documents/curso_estadistica/ejemplos")
+
+ranas <- read.csv("touchon.csv")
+head(ranas)
+```
+
+## Importando archivos .csv {.smaller visibility="uncounted" auto-animate="true"}
+
+**R base**
+
+```{r echo=T, eval=F}
+setwd("C:/Users/mmore/Documents/curso_estadistica/ejemplos")
+
+ranas <- read.csv("touchon.csv")
+head(ranas)
+```
+
+```{r echo=F, eval=T}
+ranas <- read.csv("touchon.csv")
+head(ranas)
+```
+
+## Importando archivos .csv {.smaller visibility="uncounted" auto-animate="true"}
+
+**`tidyverse`**
+
+```{r echo=T, eval=F}
+#| code-line-numbers: "1|2|3|4"
+setwd("C:/Users/mmore/Documents/curso_estadistica/ejemplos")
+library(readr)
+ranas <- read_csv("touchon.csv")
+ranas
+```
+
+## Importando archivos .csv {.smaller visibility="uncounted" auto-animate="true"}
+
+**`tidyverse`**
+
+```{r echo=T, eval=F}
+setwd("C:/Users/mmore/Documents/curso_estadistica/ejemplos")
+library(readr)
+ranas <- read_csv("touchon.csv")
+ranas
+```
+
+```{r echo=F, eval=T}
+library(readr)
+ranas <- read_csv("touchon.csv")
+ranas
+```
+
+## Antes de continuar...
+
+::: incremental
+-   Tanto las funciones `read.csv` como `read_csv` tienen por default la coma (`,`) como separador de las columnas.
+
+-   En caso de encontrarte con un documento .csv donde otro separador es usado, usa las funciones de ayuda para ver la manera correcta de especificar el separador.
+
+-   Para importar archivos .txt se usan de manera similar las funciones `read.table` y `read_table` de base R y `tidyverse`, respectivamente.
+:::
+
+## Importando archivos de Excel {.smaller auto-animate="true"}
+
+-   Usaremos el archivo rotXLS.xlsx y el paquete `readxl`
+
+. . .
+
+```{r echo=T, eval=F}
+#| code-line-numbers: "1|2|3"
+library(readxl)
+rotavirus <- read_excel("rotXLS.xlsx")
+rotavirus
+```
+
+## Importando archivos de Excel {.smaller visibility="uncounted" auto_animate="true"}
+
+-   Usaremos el archivo rotXLS.xlsx y el paquete `readxl`
+
+```{r echo=T, eval=T}
+library(readxl)
+rotavirus <- read_excel("rotXLS.xlsx")
+rotavirus
+```
+
+. . .
+
+-   En el caso de archivos de Excel con varias páginas, podemos especificar qué página importar con el argumento `sheet` dentro de la función `read_excel`.
+
+## Exportación de datos
+
+**Archivos .csv**
+
+```{r echo=T, eval=F}
+#| code-line-numbers: "2|5"
+# con R base
+write.csv(ranas, "copia_touchon.csv", row.names = F)
+
+# con tidyverse
+write_csv(ranas, "copia_touchon.csv")
+```
+
+## Exportación de datos {visibility="uncounted"}
+
+**Archivos .xlsx**
+
+-   `readxl` no tiene funcionalidad para exportar tablas con extensión .xlsx
+
+. . .
+
+-   Usaremos el paquete `writexl`
+
+```{r echo=T, eval=F}
+#| code-line-numbers: "1|2|3"
+install.packages("writexl")
+library(writexl)
+write_xlsx(rotavirus, "copia_rotavirus.xlsx")
+```
+
+# Operaciones con tablas de datos
+
+## Introducción {.smaller}
+
+::: incremental
+-   Una destreza importantísima en el análisis de datos es el saber manejar tablas:
+
+    -   Los datos no siempre están organizados de la manera que desearíamos.
+
+    -   Dependiendo de las funciones a usar, necesitamos hacer conversiones entre formatos (de largo a ancho o viceversa). Por ejemplo, el paquete `ggplot2` funciona generalmente con tablas en formato largo.
+
+    -   Tablas organizadas en formato largo son de más fácil acceso para tareas iterativas (computacionalmente más eficientes).
+
+-   Nos enfocaremos en operaciones básicas con tablas de datos.
+
+-   Todas las transformaciones que veremos aquí, es posible realizarlas con R base. Sin embargo, nos enfocaremos en el uso del `tidyverse` puesto que su sintaxis es más intuitiva.
+:::
+
+## Transformación de formatos
+
+![](images/reshape.png){fig-align="center"}
+
+## Transformación de formatos {.smaller visibility="uncounted" auto-animate="true"}
+
+**De formato ancho a largo**
+
+-   Utilizaremos la función `pivot_longer` del paquete `tidyr` con la tabla de base `air_quality`
+
+. . .
+
+```{r echo=T, eval=F}
+#| code-line-numbers: "1|2|4-5"
+library(dplyr)
+library(tidyr)
+
+tabla_larga <- airquality %>%
+  pivot_longer(everything())
+```
+
+## Transformación de formatos {.smaller visibility="uncounted" auto-animate="true"}
+
+**De formato ancho a largo**
+
+-   Utilizaremos la función `pivot_longer` del paquete `tidyr` con la tabla de base `air_quality`
+
+```{r echo=T, eval=T}
+library(dplyr)
+library(tidyr)
+
+tabla_larga <- airquality %>%
+  pivot_longer(everything())
+
+tabla_larga
+```
+
+## Transformación de formatos {.smaller visibility="uncounted" auto-animate="true"}
+
+**De formato ancho a largo**
+
+-   Utilizaremos la función `pivot_longer` del paquete `tidyr` con la tabla de base `air_quality`
+
+-   Podemos asignar nombres.
+
+```{r echo=T, eval=T}
+tabla_larga <- airquality %>%
+  pivot_longer(everything(), names_to = "variable", values_to = "valores")
+```
+
+## Transformación de formatos {.smaller visibility="uncounted" auto-animate="true"}
+
+**De formato ancho a largo**
+
+-   Utilizaremos la función `pivot_longer` del paquete `tidyr` con la tabla de base `air_quality`
+
+-   Podemos asignar nombres.
+
+-   Mantener columnas en la transformación.
+
+```{r echo=T, eval=T}
+tabla_larga <- airquality %>%
+  pivot_longer(c(Ozone, Solar.R, Wind, Temp), 
+               names_to = "variable", values_to = "valores")
+
+tabla_larga
+```
+
+## Transformación de formatos {.smaller visibility="uncounted" auto-animate="true"}
+
+**De formato largo a ancho**
+
+-   Utilizaremos la función `pivot_wider`
+
+```{r echo=T, eval=F}
+#| code-line-numbers: "1-3"
+tabla_ancha <- tabla_larga %>%
+  pivot_wider(names_from = "variable",
+              values_from = "valores")
+```
+
+## Transformación de formatos {.smaller visibility="uncounted" auto-animate="true"}
+
+**De formato largo a ancho**
+
+-   Utilizaremos la función `pivot_wider`
+
+```{r echo=T, eval=T}
+tabla_ancha <- tabla_larga %>%
+  pivot_wider(names_from = "variable",
+              values_from = "valores")
+
+tabla_ancha
+```
+
+## Autoevaluación {.smaller}
+
++-----------------------------------------------------------------------------------+------------------------------------------------------------------------------------+
+| 1.  La tabla de datos `airquality` trata de                                       | a\) Medidas de calidad de aire en Nueva York                                       |
+|                                                                                   |                                                                                    |
+|                                                                                   | b\) Medidas de contaminación de aire                                               |
+|                                                                                   |                                                                                    |
+|                                                                                   | c\) Medidas de presión atmosférica en UK                                           |
++-----------------------------------------------------------------------------------+------------------------------------------------------------------------------------+
+| 2.  ¿Por qué debemos cambiar `\` por `/` en R?                                    | a\) Da igual, no es necesario                                                      |
+|                                                                                   |                                                                                    |
+|                                                                                   | b\) Puede provocar errores porque `\` es usado para caracteres especiales          |
+|                                                                                   |                                                                                    |
+|                                                                                   | c\) Solo es necesario en Windows                                                   |
++-----------------------------------------------------------------------------------+------------------------------------------------------------------------------------+
+| 3.  En la función `write.csv`, si el argumento `row.names` no es seteado como `F` | a\) El archivo .csv creado contendrá una columna extra indicando el número de fila |
+|                                                                                   |                                                                                    |
+|                                                                                   | b\) El separador de columnas será el punto y coma en lugar de la coma              |
+|                                                                                   |                                                                                    |
+|                                                                                   | c\) No pasa nada                                                                   |
++-----------------------------------------------------------------------------------+------------------------------------------------------------------------------------+
+
+## Autoevaluación  {.smaller .scrollable visibility="uncounted"}
+
+`mtcars` es una tabla de base R.
+
++-------------------------------+-----+
+| 4.  Esta tabla es rectangular | V/F |
++-------------------------------+-----+
+
+En el siguiente código:
+
+```{r echo=T, eval=F}
+tabla_cars <- mtcars
+head(tabla_cars)
+tabla_cars$marca <- row.names(tabla_cars)
+tabla_cars %>% 
+  pivot_longer(-c("marca"), 
+               names_to = "variable", 
+               values_to = "valores")
+```
+
++---------------------------------------------------------+-----------------------------------------------------------------------+
+| 5.  En la línea 1 estamos creando una copia de `mtcars` | V/F                                                                   |
++---------------------------------------------------------+-----------------------------------------------------------------------+
+| 6.  En la línea 3 estamos                               | a\) Cambiando los nombres de las columnas de `tabla_cars`             |
+|                                                         |                                                                       |
+|                                                         | b\) Extrayendo los nombres de las filas de `tabla_cars`               |
+|                                                         |                                                                       |
+|                                                         | c\) Creando una nueva variable con los nombres de las marcas de autos |
++---------------------------------------------------------+-----------------------------------------------------------------------+
+| 7.  En las líneas 4 a 7 estamos                         | a\) Transformando de formato largo a ancho                            |
+|                                                         |                                                                       |
+|                                                         | b\) Transformando de formato ancho a largo                            |
+|                                                         |                                                                       |
+|                                                         | c\) Preparando la tabla para exportar                                 |
++---------------------------------------------------------+-----------------------------------------------------------------------+
+| 8.  La expresión `-c("marca")` significa                | a\) Que estamos borrando la columna "marca" de `tabla_cars`           |
+|                                                         |                                                                       |
+|                                                         | b\) Que excluya "marca" del pivot                                     |
+|                                                         |                                                                       |
+|                                                         | c\) Ninguna de las anteriores                                         |
++---------------------------------------------------------+-----------------------------------------------------------------------+
+
+## Funciones y librerías en esta sesión {.smaller .scrollable}
+
+**Funciones**
+
+-   `head` nos muestra las primeras 10 filas de una tabla de datos.
+
+-   `paste0` permite combinar dos o más elementos en una cadena de caracteres sin espacio entre ellos.
+
+-   `min` y `max` encuentran los valores mínimo y máximo de un objeto.
+
+-   `sum` calcula la suma de los elementos de un objeto.
+
+-   `setwd` determina el directorio de trabajo para la sesión de R.
+
+-   `row.names` devuelve los nombres de las filas de una tabla en forma de un objeto (vector).
+
+**Librerías**
+
+-   `dplyr`, parte del `tidyverse`.
+
+    -   `%>%` operador de cascada.
+
+    -   `filter` nos ayuda a filtrar filas.
+
+    -   `select` nos ayuda a seleccionar columnas.
+
+    -   `arrange` ordena en una variable (alfabética o numéricamente).
+
+    -   `desc` determina si el orden debe ser descendente.
+
+    -   `mutate` sirve para crear una nueva columna en un `tibble`.
+
+    -   `n` función que devuelve el tamaño (conteo) de una variable.
+
+    -   `group_by` agrupa una variable en tantos grupos como niveles posea la variable.
+
+-   `tidyr`, parte del `tidyverse`.
+
+    -   `separate` sirve para separar una columna en otras más si es que existe una expresión regular.
+
+    -   `unite` hace lo contrario a `separate`.
+
+    -   `pivot_longer` transforma tablas de formato ancho a largo.
+
+    -   `pivot_wider` transofrma tablas de formato largo a ancho.
+
+-   `readr`, parte del `tidyverse`
+
+    -   `read_csv` equivalente a `read.csv` de R base, importa tablas de extensión .csv.
+
+-   `readxl`, parte del `tidyverse`
+
+    -   `read_excel` es la función para importar tablas de Excel
+
+-   `writexl` es un paquete que ofrece funcionalidades para trabajar con archivos de Excel.
+
+    -   `write_xlsx` exporta tablas de datos de R a extensión .xlsx.
