@@ -1,0 +1,520 @@
+[
+  {
+    "objectID": "index.html#tipos-de-tablas",
+    "href": "index.html#tipos-de-tablas",
+    "title": "Módulo 3: Introducción al tidyverse",
+    "section": "Tipos de tablas",
+    "text": "Tipos de tablas\n\nExisten básicamente dos tipos de tablas de datos de acuerdo a su formato: ancho (wide format) y largo (long format)\n\n\nFigura tomada de listendata.com"
+  },
+  {
+    "objectID": "index.html#datos-ordenados-tidy-data",
+    "href": "index.html#datos-ordenados-tidy-data",
+    "title": "Módulo 3: Introducción al tidyverse",
+    "section": "Datos ordenados (Tidy data)",
+    "text": "Datos ordenados (Tidy data)\n\n\nCuando llevamos registro de datos es muy común usar tablas de Excel.\nPor la libertad que tenemos en este software, es fácil el dejarnos llevar por prácticas que luego nos causarán dolores de cabeza.\nPor ello me parece importante el mencionar unas cuantas sugerencias para llevar el registro de datos:\n\nConsistencia\nEscoge buenos nombres\nEscribir fechas en formato ISO 8601\nEvitar filas/celdas vacías donde no son necesarias\nPon una sola cosa a la vez\nEvita usar resaltador/colores de fuentes\n\n\n\n\nLa mayor parte de ejemplos aquí tomados provienen de Data organization in Spreadsheets y las figuras del curso Tidyverse Skills for Data Science{target=“_blank”."
+  },
+  {
+    "objectID": "index.html#consistencia",
+    "href": "index.html#consistencia",
+    "title": "Módulo 3: Introducción al tidyverse",
+    "section": "Consistencia",
+    "text": "Consistencia"
+  },
+  {
+    "objectID": "index.html#escoge-buenos-nombres",
+    "href": "index.html#escoge-buenos-nombres",
+    "title": "Módulo 3: Introducción al tidyverse",
+    "section": "Escoge buenos nombres",
+    "text": "Escoge buenos nombres\n\n\nComo ya habíamos mencionado, R puede presentar problemas con el nombre que le asignemos a nuestras columnas (“variables”):\n\nSi comienza con un número, antepondrá X. al nombre de la columna\nSi tiene caracteres especiales, puede dar problemas en el espaciado o de lectura\n\nAdicionalmente, podemos mencionar las siguientes recomendaciones\n\n\n\n\n\n\n\n\n\n\n\n\nEsto está bien\nEvita esto!\n\n\n\n\nEspacios extras\n\"masculino\"\n\"masculino \"\n\n\nUsa guiones bajos en lugar de espacios vacíos\ncultivo_control\ncultivo control\n\n\nUsa nombres informativos\ncultivo_control\nC1"
+  },
+  {
+    "objectID": "index.html#fechas-en-formato-iso-8601",
+    "href": "index.html#fechas-en-formato-iso-8601",
+    "title": "Módulo 3: Introducción al tidyverse",
+    "section": "Fechas en formato ISO 8601",
+    "text": "Fechas en formato ISO 8601\n\n\nYa habíamos mencionado anteriormente que dar formato a fechas puede resultar difícil (aunque no imposible).\nComo parte de la consistencia, es recomendable que cuando trabajamos con fechas, registrarlas como “YYYY-MM-DD”.\nEste formato es conocido como ISO 8601 y es reconocido sin problema por R (y otros lenguajes).\nDependiendo de la configuración de nuestro ordenador, a veces fechas en Excel como “14-Feb-23” pueden ser reconocidas automáticamente."
+  },
+  {
+    "objectID": "index.html#evitar-filasceldas-vacías",
+    "href": "index.html#evitar-filasceldas-vacías",
+    "title": "Módulo 3: Introducción al tidyverse",
+    "section": "Evitar filas/celdas vacías",
+    "text": "Evitar filas/celdas vacías"
+  },
+  {
+    "objectID": "index.html#una-sola-cosa-a-la-vez",
+    "href": "index.html#una-sola-cosa-a-la-vez",
+    "title": "Módulo 3: Introducción al tidyverse",
+    "section": "Una sola cosa a la vez",
+    "text": "Una sola cosa a la vez"
+  },
+  {
+    "objectID": "index.html#evita-resaltarcambiar-colores",
+    "href": "index.html#evita-resaltarcambiar-colores",
+    "title": "Módulo 3: Introducción al tidyverse",
+    "section": "Evita resaltar/cambiar colores",
+    "text": "Evita resaltar/cambiar colores"
+  },
+  {
+    "objectID": "index.html#ejemplos-de-tablas-problemáticas",
+    "href": "index.html#ejemplos-de-tablas-problemáticas",
+    "title": "Módulo 3: Introducción al tidyverse",
+    "section": "Ejemplos de tablas “problemáticas”",
+    "text": "Ejemplos de tablas “problemáticas”"
+  },
+  {
+    "objectID": "index.html#ejemplos-de-tablas-problemáticas-1",
+    "href": "index.html#ejemplos-de-tablas-problemáticas-1",
+    "title": "Módulo 3: Introducción al tidyverse",
+    "section": "Ejemplos de tablas “problemáticas”",
+    "text": "Ejemplos de tablas “problemáticas”"
+  },
+  {
+    "objectID": "index.html#principios-de-datos-ordenados",
+    "href": "index.html#principios-de-datos-ordenados",
+    "title": "Módulo 3: Introducción al tidyverse",
+    "section": "Principios de datos ordenados",
+    "text": "Principios de datos ordenados\n\n\nPropuestos por Hadley Wickham en su artículo titulado Tidy Data.\nSon sugerencias que Wickham formula para harmonizar la manera de registrar datos y su posterior procesamiento en modelos de ciencias de datos (discutiblemente estas sugerencias ya existían inherentemente en el lenguaje SQL).\nTiene como premisa el arreglo de los datos en formato ancho (o también conocido como rectangular).\nLas tablas rectangulares nacen de nuestra predisposición a registrar datos de esta manera."
+  },
+  {
+    "objectID": "index.html#principio-1-una-columna-por-variable",
+    "href": "index.html#principio-1-una-columna-por-variable",
+    "title": "Módulo 3: Introducción al tidyverse",
+    "section": "Principio 1: Una columna por variable",
+    "text": "Principio 1: Una columna por variable"
+  },
+  {
+    "objectID": "index.html#principio-2-una-observación-por-fila",
+    "href": "index.html#principio-2-una-observación-por-fila",
+    "title": "Módulo 3: Introducción al tidyverse",
+    "section": "Principio 2: Una observación por fila",
+    "text": "Principio 2: Una observación por fila"
+  },
+  {
+    "objectID": "index.html#principio-3-una-hoja-de-datos-por-tipo-de-datos",
+    "href": "index.html#principio-3-una-hoja-de-datos-por-tipo-de-datos",
+    "title": "Módulo 3: Introducción al tidyverse",
+    "section": "Principio 3: Una hoja de datos por tipo de datos",
+    "text": "Principio 3: Una hoja de datos por tipo de datos"
+  },
+  {
+    "objectID": "index.html#principio-4-una-variable-con-un-identificador",
+    "href": "index.html#principio-4-una-variable-con-un-identificador",
+    "title": "Módulo 3: Introducción al tidyverse",
+    "section": "Principio 4: Una variable con un identificador",
+    "text": "Principio 4: Una variable con un identificador"
+  },
+  {
+    "objectID": "index.html#introducción",
+    "href": "index.html#introducción",
+    "title": "Módulo 3: Introducción al tidyverse",
+    "section": "Introducción",
+    "text": "Introducción\n\n\n\n\ntidyverse es una colección de paquetes de R diseñados para la ciencia de datos creada originalmente por Wickham.\nPara su instalación usaremos la sintaxis que ya hemos aprendido en el módulo 1 (install.packages(\"tidyverse\")).\nAl momento, comprende 8 paquetes. De estos los que más usaremos son:\n\ndplyr: conjunto de funciones para arreglo y “manipulación” de datos\nggplot2: el paquete de ploteo por excelencia de R."
+  },
+  {
+    "objectID": "index.html#operador-de-cascada-pipeline-operator",
+    "href": "index.html#operador-de-cascada-pipeline-operator",
+    "title": "Módulo 3: Introducción al tidyverse",
+    "section": "Operador de cascada (pipeline operator)",
+    "text": "Operador de cascada (pipeline operator)\n\n\nAntes de comenzar directamente con dplyr, daremos un vistazo al operador de cascada: %&gt;%.\nEntendamos a %&gt;% como la palabra “entonces”. En términos sencillos, es algo como: “Tengo harina %&gt;% hago pan”\nEn lenguaje R, esto se interpreta como si tuvieramos un objeto A sobre el cual deseamos aplicar una función B. Esto se vería como: B(A)\nAlternativamente, podemos expresarlo como A %&gt;% B.\nAhora supongamos que tengo un objeto sobre el cual quiero llevar a cabo más funciones en una determinada secuencia, quiero sobre A hacer las funciones B, C, D.\nEn base R, esto se vería cómo D(C(B(A)))\nO, alternativamente A %&gt;% B %&gt;% C %&gt;% D\nNoten como el uso %&gt;% nos facilita la interpretación de la secuencia de acciones."
+  },
+  {
+    "objectID": "index.html#filtrando-filas",
+    "href": "index.html#filtrando-filas",
+    "title": "Módulo 3: Introducción al tidyverse",
+    "section": "Filtrando filas",
+    "text": "Filtrando filas\nAquí, vamos a utilizar la tabla de datos msleep contenida en ggplot2.\n\nlibrary(ggplot2)\nhead(msleep)"
+  },
+  {
+    "objectID": "index.html#filtrando-filas-1",
+    "href": "index.html#filtrando-filas-1",
+    "title": "Módulo 3: Introducción al tidyverse",
+    "section": "Filtrando filas",
+    "text": "Filtrando filas\nAquí, vamos a utilizar la tabla de datos msleep contenida en ggplot2.\n\nlibrary(ggplot2)\nhead(msleep)\n\n# A tibble: 6 × 11\n  name    genus vore  order conservation sleep_total sleep_rem sleep_cycle awake\n  &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;\n1 Cheetah Acin… carni Carn… lc                  12.1      NA        NA      11.9\n2 Owl mo… Aotus omni  Prim… &lt;NA&gt;                17         1.8      NA       7  \n3 Mounta… Aplo… herbi Rode… nt                  14.4       2.4      NA       9.6\n4 Greate… Blar… omni  Sori… lc                  14.9       2.3       0.133   9.1\n5 Cow     Bos   herbi Arti… domesticated         4         0.7       0.667  20  \n6 Three-… Brad… herbi Pilo… &lt;NA&gt;                14.4       2.2       0.767   9.6\n# ℹ 2 more variables: brainwt &lt;dbl&gt;, bodywt &lt;dbl&gt;\n\n\n\nSupongamos que solo estamos interesados en las observaciones del orden “Primates”:\n\nlibrary(dplyr)\nmsleep %&gt;%\n  filter(order == \"Primates\")"
+  },
+  {
+    "objectID": "index.html#filtrando-filas-2",
+    "href": "index.html#filtrando-filas-2",
+    "title": "Módulo 3: Introducción al tidyverse",
+    "section": "Filtrando filas",
+    "text": "Filtrando filas\nAquí, vamos a utilizar la tabla de datos msleep contenida en ggplot2.\n\nlibrary(ggplot2)\nhead(msleep)\n\nSupongamos que solo estamos interesados en las observaciones del orden “Primates”:\n\nlibrary(dplyr)\nmsleep %&gt;%\n  filter(order == \"Primates\")\n\n# A tibble: 12 × 11\n   name   genus vore  order conservation sleep_total sleep_rem sleep_cycle awake\n   &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;\n 1 Owl m… Aotus omni  Prim… &lt;NA&gt;                17         1.8      NA       7  \n 2 Grivet Cerc… omni  Prim… lc                  10         0.7      NA      14  \n 3 Patas… Eryt… omni  Prim… lc                  10.9       1.1      NA      13.1\n 4 Galago Gala… omni  Prim… &lt;NA&gt;                 9.8       1.1       0.55   14.2\n 5 Human  Homo  omni  Prim… &lt;NA&gt;                 8         1.9       1.5    16  \n 6 Mongo… Lemur herbi Prim… vu                   9.5       0.9      NA      14.5\n 7 Macaq… Maca… omni  Prim… &lt;NA&gt;                10.1       1.2       0.75   13.9\n 8 Slow … Nyct… carni Prim… &lt;NA&gt;                11        NA        NA      13  \n 9 Chimp… Pan   omni  Prim… &lt;NA&gt;                 9.7       1.4       1.42   14.3\n10 Baboon Papio omni  Prim… &lt;NA&gt;                 9.4       1         0.667  14.6\n11 Potto  Pero… omni  Prim… lc                  11        NA        NA      13  \n12 Squir… Saim… omni  Prim… &lt;NA&gt;                 9.6       1.4      NA      14.4\n# ℹ 2 more variables: brainwt &lt;dbl&gt;, bodywt &lt;dbl&gt;"
+  },
+  {
+    "objectID": "index.html#filtrando-filas-3",
+    "href": "index.html#filtrando-filas-3",
+    "title": "Módulo 3: Introducción al tidyverse",
+    "section": "Filtrando filas",
+    "text": "Filtrando filas\nYa que hemos filtrado a las observaciones de los “Primates”, ¿qué tal si estuviéramos interesados solamente en aquellas que las horas totales de sueño son mayores o iguales a 10?\n\nmsleep %&gt;%\n  filter(order == \"Primates\", sleep_total &gt;= 10)"
+  },
+  {
+    "objectID": "index.html#filtrando-filas-4",
+    "href": "index.html#filtrando-filas-4",
+    "title": "Módulo 3: Introducción al tidyverse",
+    "section": "Filtrando filas",
+    "text": "Filtrando filas\nYa que hemos filtrado a las observaciones de los “Primates”, ¿qué tal si estuviéramos interesados solamente en aquellas que las horas totales de sueño son mayores o iguales a 10?\n\nmsleep %&gt;%\n  filter(order == \"Primates\", sleep_total &gt;= 10)\n\n# A tibble: 6 × 11\n  name    genus vore  order conservation sleep_total sleep_rem sleep_cycle awake\n  &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;\n1 Owl mo… Aotus omni  Prim… &lt;NA&gt;                17         1.8       NA      7  \n2 Grivet  Cerc… omni  Prim… lc                  10         0.7       NA     14  \n3 Patas … Eryt… omni  Prim… lc                  10.9       1.1       NA     13.1\n4 Macaque Maca… omni  Prim… &lt;NA&gt;                10.1       1.2        0.75  13.9\n5 Slow l… Nyct… carni Prim… &lt;NA&gt;                11        NA         NA     13  \n6 Potto   Pero… omni  Prim… lc                  11        NA         NA     13  \n# ℹ 2 more variables: brainwt &lt;dbl&gt;, bodywt &lt;dbl&gt;"
+  },
+  {
+    "objectID": "index.html#antes-de-countinuar-tibbles",
+    "href": "index.html#antes-de-countinuar-tibbles",
+    "title": "Módulo 3: Introducción al tidyverse",
+    "section": "Antes de countinuar: Tibbles",
+    "text": "Antes de countinuar: Tibbles\n\n\nCómo te habras dado cuenta, en el prompt de R vemos que la tabla es llamada # A tibble.\nUn tibble es una version de tablas de datos generada por el paquete del mismo nombre que a su vez es parte del tidyverse.\nLas diferencias con las clásicas tablas de datos son:\n\nPor default, al llamar un tibble, se imprimen únicamente las primeras diez filas de la tabla.\nLos tibbles son más sensibles a errores del programador. Esto es una ventaja al ofrecer un ambiente menos propenso a errores.\nPara operaciones complejas (sobre todo en tablas muy grandes) como unir varias tablas, crear nuevas variables, etc. los tibbles son más eficientes."
+  },
+  {
+    "objectID": "index.html#seleccionando-columnas",
+    "href": "index.html#seleccionando-columnas",
+    "title": "Módulo 3: Introducción al tidyverse",
+    "section": "Seleccionando columnas",
+    "text": "Seleccionando columnas\n\n\nEn un tibble se aplican también las reglas de indexación que vimos anteriormente al igual que el operando $.\nSin embargo, implementar este tipo de sintaxis en una cascada es difícil (aunque no imposible).\nEn el caso de seleccionar columnas, tenemos la función select de dplyr\n\n\n\n\nmsleep %&gt;%\n  filter(order == \"Primates\", sleep_total &gt;= 10) %&gt;%\n  select(name, sleep_total, sleep_rem, sleep_cycle)"
+  },
+  {
+    "objectID": "index.html#seleccionando-columnas-1",
+    "href": "index.html#seleccionando-columnas-1",
+    "title": "Módulo 3: Introducción al tidyverse",
+    "section": "Seleccionando columnas",
+    "text": "Seleccionando columnas\n\nEn un tibble se aplican también las reglas de indexación que vimos anteriormente al igual que el operando $.\nSin embargo, implementar este tipo de sintaxis en una cascada es difícil (aunque no imposible).\nEn el caso de seleccionar columnas, tenemos la función select de dplyr\n\n\nmsleep %&gt;%\n  filter(order == \"Primates\", sleep_total &gt;= 10) %&gt;%\n  select(name, sleep_total, sleep_rem, sleep_cycle)\n\n# A tibble: 6 × 4\n  name         sleep_total sleep_rem sleep_cycle\n  &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt;\n1 Owl monkey          17         1.8       NA   \n2 Grivet              10         0.7       NA   \n3 Patas monkey        10.9       1.1       NA   \n4 Macaque             10.1       1.2        0.75\n5 Slow loris          11        NA         NA   \n6 Potto               11        NA         NA"
+  },
+  {
+    "objectID": "index.html#cambiando-el-nombre-a-columnas",
+    "href": "index.html#cambiando-el-nombre-a-columnas",
+    "title": "Módulo 3: Introducción al tidyverse",
+    "section": "Cambiando el nombre a columnas",
+    "text": "Cambiando el nombre a columnas\n\nmsleep %&gt;%\n  filter(order == \"Primates\", sleep_total &gt;= 10) %&gt;%\n  select(name, total = sleep_total, rem = sleep_rem, cycle = sleep_cycle)"
+  },
+  {
+    "objectID": "index.html#cambiando-el-nombre-a-columnas-1",
+    "href": "index.html#cambiando-el-nombre-a-columnas-1",
+    "title": "Módulo 3: Introducción al tidyverse",
+    "section": "Cambiando el nombre a columnas",
+    "text": "Cambiando el nombre a columnas\n\nmsleep %&gt;%\n  filter(order == \"Primates\", sleep_total &gt;= 10) %&gt;%\n  select(name, total = sleep_total, rem = sleep_rem, cycle = sleep_cycle)\n\n# A tibble: 6 × 4\n  name         total   rem cycle\n  &lt;chr&gt;        &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1 Owl monkey    17     1.8 NA   \n2 Grivet        10     0.7 NA   \n3 Patas monkey  10.9   1.1 NA   \n4 Macaque       10.1   1.2  0.75\n5 Slow loris    11    NA   NA   \n6 Potto         11    NA   NA"
+  },
+  {
+    "objectID": "index.html#reordenando-columnas",
+    "href": "index.html#reordenando-columnas",
+    "title": "Módulo 3: Introducción al tidyverse",
+    "section": "Reordenando columnas",
+    "text": "Reordenando columnas\n\nmsleep %&gt;%\n  filter(order == \"Primates\", sleep_total &gt;= 10) %&gt;%\n  select(name, sleep_rem, sleep_cycle, sleep_total)"
+  },
+  {
+    "objectID": "index.html#reordenando-columnas-1",
+    "href": "index.html#reordenando-columnas-1",
+    "title": "Módulo 3: Introducción al tidyverse",
+    "section": "Reordenando columnas",
+    "text": "Reordenando columnas\n\nmsleep %&gt;%\n  filter(order == \"Primates\", sleep_total &gt;= 10) %&gt;%\n  select(name, sleep_rem, sleep_cycle, sleep_total)\n\n# A tibble: 6 × 4\n  name         sleep_rem sleep_cycle sleep_total\n  &lt;chr&gt;            &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;\n1 Owl monkey         1.8       NA           17  \n2 Grivet             0.7       NA           10  \n3 Patas monkey       1.1       NA           10.9\n4 Macaque            1.2        0.75        10.1\n5 Slow loris        NA         NA           11  \n6 Potto             NA         NA           11"
+  },
+  {
+    "objectID": "index.html#reordenando-filas",
+    "href": "index.html#reordenando-filas",
+    "title": "Módulo 3: Introducción al tidyverse",
+    "section": "Reordenando filas",
+    "text": "Reordenando filas\nVariable numérica\n\nmsleep %&gt;%\n  filter(order == \"Primates\", sleep_total &gt;= 10) %&gt;%\n  select(name, sleep_rem, sleep_cycle, sleep_total) %&gt;%\n  arrange(sleep_total)"
+  },
+  {
+    "objectID": "index.html#reordenando-filas-1",
+    "href": "index.html#reordenando-filas-1",
+    "title": "Módulo 3: Introducción al tidyverse",
+    "section": "Reordenando filas",
+    "text": "Reordenando filas\nVariable numérica\n\nmsleep %&gt;%\n  filter(order == \"Primates\", sleep_total &gt;= 10) %&gt;%\n  select(name, sleep_rem, sleep_cycle, sleep_total) %&gt;%\n  arrange(sleep_total)\n\n# A tibble: 6 × 4\n  name         sleep_rem sleep_cycle sleep_total\n  &lt;chr&gt;            &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;\n1 Grivet             0.7       NA           10  \n2 Macaque            1.2        0.75        10.1\n3 Patas monkey       1.1       NA           10.9\n4 Slow loris        NA         NA           11  \n5 Potto             NA         NA           11  \n6 Owl monkey         1.8       NA           17"
+  },
+  {
+    "objectID": "index.html#reordenando-filas-2",
+    "href": "index.html#reordenando-filas-2",
+    "title": "Módulo 3: Introducción al tidyverse",
+    "section": "Reordenando filas",
+    "text": "Reordenando filas\nVariable numérica en orden descendente\n\nmsleep %&gt;%\n  filter(order == \"Primates\", sleep_total &gt;= 10) %&gt;%\n  select(name, sleep_rem, sleep_cycle, sleep_total) %&gt;%\n  arrange(desc(sleep_total))\n\n# A tibble: 6 × 4\n  name         sleep_rem sleep_cycle sleep_total\n  &lt;chr&gt;            &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;\n1 Owl monkey         1.8       NA           17  \n2 Slow loris        NA         NA           11  \n3 Potto             NA         NA           11  \n4 Patas monkey       1.1       NA           10.9\n5 Macaque            1.2        0.75        10.1\n6 Grivet             0.7       NA           10"
+  },
+  {
+    "objectID": "index.html#reordenando-filas-3",
+    "href": "index.html#reordenando-filas-3",
+    "title": "Módulo 3: Introducción al tidyverse",
+    "section": "Reordenando filas",
+    "text": "Reordenando filas\nVariable categórica\n\nmsleep %&gt;%\n  filter(order == \"Primates\", sleep_total &gt;= 10) %&gt;%\n  select(name, sleep_rem, sleep_cycle, sleep_total) %&gt;%\n  arrange(name)\n\n# A tibble: 6 × 4\n  name         sleep_rem sleep_cycle sleep_total\n  &lt;chr&gt;            &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;\n1 Grivet             0.7       NA           10  \n2 Macaque            1.2        0.75        10.1\n3 Owl monkey         1.8       NA           17  \n4 Patas monkey       1.1       NA           10.9\n5 Potto             NA         NA           11  \n6 Slow loris        NA         NA           11"
+  },
+  {
+    "objectID": "index.html#reordenando-filas-4",
+    "href": "index.html#reordenando-filas-4",
+    "title": "Módulo 3: Introducción al tidyverse",
+    "section": "Reordenando filas",
+    "text": "Reordenando filas\nVariable categórica y numérica\n\nmsleep %&gt;%\n  filter(order == \"Primates\", sleep_total &gt;= 10) %&gt;%\n  select(name, sleep_rem, sleep_cycle, sleep_total) %&gt;%\n  arrange(desc(name), sleep_cycle)\n\n# A tibble: 6 × 4\n  name         sleep_rem sleep_cycle sleep_total\n  &lt;chr&gt;            &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;\n1 Slow loris        NA         NA           11  \n2 Potto             NA         NA           11  \n3 Patas monkey       1.1       NA           10.9\n4 Owl monkey         1.8       NA           17  \n5 Macaque            1.2        0.75        10.1\n6 Grivet             0.7       NA           10"
+  },
+  {
+    "objectID": "index.html#creando-nuevas-columnas",
+    "href": "index.html#creando-nuevas-columnas",
+    "title": "Módulo 3: Introducción al tidyverse",
+    "section": "Creando nuevas columnas",
+    "text": "Creando nuevas columnas\n\nmsleep %&gt;%\n  filter(order == \"Primates\", sleep_total &gt;= 10) %&gt;%\n  select(name, sleep_rem, sleep_cycle, sleep_total) %&gt;%\n  arrange(desc(name), sleep_cycle) %&gt;%\n  mutate(sleep_total_min = sleep_total * 60)"
+  },
+  {
+    "objectID": "index.html#creando-nuevas-columnas-1",
+    "href": "index.html#creando-nuevas-columnas-1",
+    "title": "Módulo 3: Introducción al tidyverse",
+    "section": "Creando nuevas columnas",
+    "text": "Creando nuevas columnas\n\nmsleep %&gt;%\n  filter(order == \"Primates\", sleep_total &gt;= 10) %&gt;%\n  select(name, sleep_rem, sleep_cycle, sleep_total) %&gt;%\n  arrange(desc(name), sleep_cycle) %&gt;%\n  mutate(sleep_total_min = sleep_total * 60)\n\n# A tibble: 6 × 5\n  name         sleep_rem sleep_cycle sleep_total sleep_total_min\n  &lt;chr&gt;            &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;           &lt;dbl&gt;\n1 Slow loris        NA         NA           11               660\n2 Potto             NA         NA           11               660\n3 Patas monkey       1.1       NA           10.9             654\n4 Owl monkey         1.8       NA           17              1020\n5 Macaque            1.2        0.75        10.1             606\n6 Grivet             0.7       NA           10               600"
+  },
+  {
+    "objectID": "index.html#separando-columnas",
+    "href": "index.html#separando-columnas",
+    "title": "Módulo 3: Introducción al tidyverse",
+    "section": "Separando columnas",
+    "text": "Separando columnas\n\n\nIdealmente, deberíamos tratar de contar con un solo tipo de información por columna (“Una sola cosa a la vez”, slide #9)\nSin embargo, sobretodo cuando recibimos datos de terceros, nos podemos encontrar con este problema.\nSi el registro de datos fue consistente, es posible separarlo fácilmente usando la función separate de tidyr\ntidyr es otro paquete del tidyverse que ofrece funciones complementarias para manejo de tablas.\nSe diferencia de dplyr en que sus funciones están más enfocadas en brindar transformaciones de formatos de tablas.\nPara ilustrar su uso, supongamos que dos variables de la tabla msleep fueron combinadas en su registro:\n\n\n\n\nej_separate &lt;- msleep\nej_separate$genus_vore &lt;- paste0(ej_separate$genus, \"-\", ej_separate$vore)\nej_separate &lt;- ej_separate[, c(1, 12)]\nhead(ej_separate)"
+  },
+  {
+    "objectID": "index.html#separando-columnas-1",
+    "href": "index.html#separando-columnas-1",
+    "title": "Módulo 3: Introducción al tidyverse",
+    "section": "Separando columnas",
+    "text": "Separando columnas\n\nIdealmente, deberíamos tratar de contar con un solo tipo de información por columna (“Una sola cosa a la vez”, slide #9)\nSin embargo, sobretodo cuando recibimos datos de terceros, nos podemos encontrar con este problema.\nSi el registro de datos fue consistente, es posible separarlo fácilmente usando la función separate de tidyr\ntidyr es otro paquete del tidyverse que ofrece funciones complementarias para manejo de tablas.\nSe diferencia de dplyr en que sus funciones están más enfocadas en brindar transformaciones de formatos de tablas.\nPara ilustrar su uso, supongamos que dos variables de la tabla msleep fueron combinadas en su registro:\n\n\nej_separate &lt;- msleep\nej_separate$genus_vore &lt;- paste0(ej_separate$genus, \"-\", ej_separate$vore)\nej_separate &lt;- ej_separate[, c(1, 12)]\nhead(ej_separate)\n\n# A tibble: 6 × 2\n  name                       genus_vore      \n  &lt;chr&gt;                      &lt;chr&gt;           \n1 Cheetah                    Acinonyx-carni  \n2 Owl monkey                 Aotus-omni      \n3 Mountain beaver            Aplodontia-herbi\n4 Greater short-tailed shrew Blarina-omni    \n5 Cow                        Bos-herbi       \n6 Three-toed sloth           Bradypus-herbi"
+  },
+  {
+    "objectID": "index.html#separando-columnas-2",
+    "href": "index.html#separando-columnas-2",
+    "title": "Módulo 3: Introducción al tidyverse",
+    "section": "Separando columnas",
+    "text": "Separando columnas\n\nhead(ej_separate)\n\n# A tibble: 6 × 2\n  name                       genus_vore      \n  &lt;chr&gt;                      &lt;chr&gt;           \n1 Cheetah                    Acinonyx-carni  \n2 Owl monkey                 Aotus-omni      \n3 Mountain beaver            Aplodontia-herbi\n4 Greater short-tailed shrew Blarina-omni    \n5 Cow                        Bos-herbi       \n6 Three-toed sloth           Bradypus-herbi  \n\n\n\n\nEn esta variable genus_vore vemos que la información de dos cosas se encuentran separadas por el caracter -. Veamos entonces como podemos separarlas en dos columnas distintas con la ayuda de tidyr:\n\n\n\n\nlibrary(tidyr)\nej_separate %&gt;%\n  separate(`genus_vore`,\n           into = c(\"genus\", \"vore\"), sep = \"-\")"
+  },
+  {
+    "objectID": "index.html#separando-columnas-3",
+    "href": "index.html#separando-columnas-3",
+    "title": "Módulo 3: Introducción al tidyverse",
+    "section": "Separando columnas",
+    "text": "Separando columnas\n\nhead(ej_separate)\n\n# A tibble: 6 × 2\n  name                       genus_vore      \n  &lt;chr&gt;                      &lt;chr&gt;           \n1 Cheetah                    Acinonyx-carni  \n2 Owl monkey                 Aotus-omni      \n3 Mountain beaver            Aplodontia-herbi\n4 Greater short-tailed shrew Blarina-omni    \n5 Cow                        Bos-herbi       \n6 Three-toed sloth           Bradypus-herbi  \n\n\n\nEn esta variable genus_vore vemos que la información de dos cosas se encuentran separadas por el caracter -. Veamos entonces como podemos separarlas en dos columnas distintas con la ayuda de tidyr:\n\n\nlibrary(tidyr)\nej_separate %&gt;%\n  separate(`genus_vore`,\n           into = c(\"genus\", \"vore\"), sep = \"-\")\n\n# A tibble: 83 × 3\n   name                       genus       vore \n   &lt;chr&gt;                      &lt;chr&gt;       &lt;chr&gt;\n 1 Cheetah                    Acinonyx    carni\n 2 Owl monkey                 Aotus       omni \n 3 Mountain beaver            Aplodontia  herbi\n 4 Greater short-tailed shrew Blarina     omni \n 5 Cow                        Bos         herbi\n 6 Three-toed sloth           Bradypus    herbi\n 7 Northern fur seal          Callorhinus carni\n 8 Vesper mouse               Calomys     NA   \n 9 Dog                        Canis       carni\n10 Roe deer                   Capreolus   herbi\n# ℹ 73 more rows"
+  },
+  {
+    "objectID": "index.html#combinando-columnas",
+    "href": "index.html#combinando-columnas",
+    "title": "Módulo 3: Introducción al tidyverse",
+    "section": "Combinando columnas",
+    "text": "Combinando columnas\n\nej_separate %&gt;%\n  separate(`genus_vore`,\n           into = c(\"genus\", \"vore\"), sep = \"-\") %&gt;%\n  unite(new_genus_vore, genus, vore, sep = \"_\")"
+  },
+  {
+    "objectID": "index.html#combinando-columnas-1",
+    "href": "index.html#combinando-columnas-1",
+    "title": "Módulo 3: Introducción al tidyverse",
+    "section": "Combinando columnas",
+    "text": "Combinando columnas\n\nej_separate %&gt;%\n  separate(`genus_vore`,\n           into = c(\"genus\", \"vore\"), sep = \"-\") %&gt;%\n  unite(new_genus_vore, genus, vore, sep = \"_\")\n\n# A tibble: 83 × 2\n   name                       new_genus_vore   \n   &lt;chr&gt;                      &lt;chr&gt;            \n 1 Cheetah                    Acinonyx_carni   \n 2 Owl monkey                 Aotus_omni       \n 3 Mountain beaver            Aplodontia_herbi \n 4 Greater short-tailed shrew Blarina_omni     \n 5 Cow                        Bos_herbi        \n 6 Three-toed sloth           Bradypus_herbi   \n 7 Northern fur seal          Callorhinus_carni\n 8 Vesper mouse               Calomys_NA       \n 9 Dog                        Canis_carni      \n10 Roe deer                   Capreolus_herbi  \n# ℹ 73 more rows"
+  },
+  {
+    "objectID": "index.html#resumiendo-datos",
+    "href": "index.html#resumiendo-datos",
+    "title": "Módulo 3: Introducción al tidyverse",
+    "section": "Resumiendo datos",
+    "text": "Resumiendo datos\n\n\nUna de las funcionalidades más importantes de dplyr es el poder resumir datos (o en otras palabras el aplicar funciones sobre variables en la tabla).\nPara ello usamos la función summarise (o summarize).\n\n\n\n\nmsleep %&gt;%\n  select(name) %&gt;%\n  summarise(conteo = n())"
+  },
+  {
+    "objectID": "index.html#resumiendo-datos-1",
+    "href": "index.html#resumiendo-datos-1",
+    "title": "Módulo 3: Introducción al tidyverse",
+    "section": "Resumiendo datos",
+    "text": "Resumiendo datos\n\nUna de las funcionalidades más importantes de dplyr es el poder resumir datos (o en otras palabras el aplicar funciones sobre variables en la tabla).\nPara ello usamos la función summarise (o summarize).\n\n\nmsleep %&gt;%\n  filter(order == \"Carnivora\") %&gt;%\n  summarise(conteo = n())\n\n# A tibble: 1 × 1\n  conteo\n   &lt;int&gt;\n1     12\n\n\n\n\nFiltrar por cada uno de los niveles de order es ineficiente y tedioso.\n\n\n\n\nEn su lugar usaremos group_by\n\n\n\n\nmsleep %&gt;%\n  group_by(order) %&gt;%\n  summarise(conteo = n())"
+  },
+  {
+    "objectID": "index.html#resumiendo-datos-2",
+    "href": "index.html#resumiendo-datos-2",
+    "title": "Módulo 3: Introducción al tidyverse",
+    "section": "Resumiendo datos",
+    "text": "Resumiendo datos\n\nUna de las funcionalidades más importantes de dplyr es el poder resumir datos (o en otras palabras el aplicar funciones sobre variables en la tabla).\nPara ello usamos la función summarise (o summarize).\n\n\nmsleep %&gt;%\n  filter(order == \"Carnivora\") %&gt;%\n  summarise(conteo = n())\n\n# A tibble: 1 × 1\n  conteo\n   &lt;int&gt;\n1     12\n\n\n\nFiltrar por cada uno de los niveles de order es ineficiente y tedioso.\nEn su lugar usaremos group_by\n\n\nmsleep %&gt;%\n  group_by(order) %&gt;%\n  summarise(conteo = n())\n\n# A tibble: 19 × 2\n   order           conteo\n   &lt;chr&gt;            &lt;int&gt;\n 1 Afrosoricida         1\n 2 Artiodactyla         6\n 3 Carnivora           12\n 4 Cetacea              3\n 5 Chiroptera           2\n 6 Cingulata            2\n 7 Didelphimorphia      2\n 8 Diprotodontia        2\n 9 Erinaceomorpha       2\n10 Hyracoidea           3\n11 Lagomorpha           1\n12 Monotremata          1\n13 Perissodactyla       3\n14 Pilosa               1\n15 Primates            12\n16 Proboscidea          2\n17 Rodentia            22\n18 Scandentia           1\n19 Soricomorpha         5"
+  },
+  {
+    "objectID": "index.html#resumiendo-datos-3",
+    "href": "index.html#resumiendo-datos-3",
+    "title": "Módulo 3: Introducción al tidyverse",
+    "section": "Resumiendo datos",
+    "text": "Resumiendo datos\n\nEn summarise podemos usar todas las operaciones estadísticas básicas de base, así como también funciones de paquetes externos.\n\n\n\nlibrary(modeest)\nmsleep %&gt;%\n  group_by(order) %&gt;%\n  summarise(conteo = n(), \n            media = mean(sleep_total),\n            desv.est. = sd(sleep_total),\n            minimo = min(sleep_total),\n            maximo = max(sleep_total),\n            moda = mlv(sleep_total, method = \"hsm\", na.rm = T),\n            q1 = quantile(sleep_total, probs = 0.25),\n            mediana = quantile(sleep_total, probs = 0.5),\n            q3 = quantile(sleep_total, probs = 0.75))"
+  },
+  {
+    "objectID": "index.html#resumiendo-datos-4",
+    "href": "index.html#resumiendo-datos-4",
+    "title": "Módulo 3: Introducción al tidyverse",
+    "section": "Resumiendo datos",
+    "text": "Resumiendo datos\n\nEn summarise podemos usar todas las operaciones estadísticas básicas\n\n\nlibrary(modeest)\nmsleep %&gt;%\n  group_by(order) %&gt;%\n  summarise(conteo = n(), \n            media = mean(sleep_total),\n            desv.est. = sd(sleep_total),\n            minimo = min(sleep_total),\n            maximo = max(sleep_total),\n            moda = mlv(sleep_total, method = \"hsm\"),\n            q1 = quantile(sleep_total, probs = 0.25),\n            mediana = quantile(sleep_total, probs = 0.5),\n            q3 = quantile(sleep_total, probs = 0.75))\n\n# A tibble: 19 × 10\n   order          conteo media desv.est. minimo maximo  moda    q1 mediana    q3\n   &lt;chr&gt;           &lt;int&gt; &lt;dbl&gt;     &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;\n 1 Afrosoricida        1 15.6     NA       15.6   15.6 15.6  15.6     15.6 15.6 \n 2 Artiodactyla        6  4.52     2.51     1.9    9.1  3.9   3.2      3.9  4.97\n 3 Carnivora          12 10.1      3.50     3.5   15.8 12.5   8.1     10.2 12.5 \n 4 Cetacea             3  4.5      1.57     2.7    5.6  5.4   3.95     5.2  5.4 \n 5 Chiroptera          2 19.8      0.141   19.7   19.9 19.8  19.8     19.8 19.8 \n 6 Cingulata           2 17.8      0.495   17.4   18.1 17.8  17.6     17.8 17.9 \n 7 Didelphimorph…      2 18.7      0.990   18     19.4 18.7  18.4     18.7 19.0 \n 8 Diprotodontia       2 12.4      1.84    11.1   13.7 12.4  11.8     12.4 13.0 \n 9 Erinaceomorpha      2 10.2      0.141   10.1   10.3 10.2  10.1     10.2 10.2 \n10 Hyracoidea          3  5.67     0.551    5.3    6.3  5.35  5.35     5.4  5.85\n11 Lagomorpha          1  8.4     NA        8.4    8.4  8.4   8.4      8.4  8.4 \n12 Monotremata         1  8.6     NA        8.6    8.6  8.6   8.6      8.6  8.6 \n13 Perissodactyla      3  3.47     0.814    2.9    4.4  3     3        3.1  3.75\n14 Pilosa              1 14.4     NA       14.4   14.4 14.4  14.4     14.4 14.4 \n15 Primates           12 10.5      2.21     8     17    9.5   9.57     9.9 10.9 \n16 Proboscidea         2  3.6      0.424    3.3    3.9  3.6   3.45     3.6  3.75\n17 Rodentia           22 12.5      2.81     7     16.6 14.4  10.8     12.9 14.5 \n18 Scandentia          1  8.9     NA        8.9    8.9  8.9   8.9      8.9  8.9 \n19 Soricomorpha        5 11.1      2.70     8.4   14.9  8.75  9.1     10.3 12.8"
+  },
+  {
+    "objectID": "index.html#autoevaluación",
+    "href": "index.html#autoevaluación",
+    "title": "Módulo 3: Introducción al tidyverse",
+    "section": "Autoevaluación",
+    "text": "Autoevaluación\n\n\n\n\n\n\n\n\nEl operador de cascada de base R es |&gt;\n\nV/F\n\n\n\nEste es un buen nombre para un objeto en R: Ingresos Anuales\n\nV/F\n\n\n\nCuando digo que una tabla está en formato largo, puedo decir que es rectangular\n\nV/F\n\n\n\nZ es una función, Y es un objeto. Con la expr. Y(Z) estoy evaluando Y en función de Z\n\nV/F\n\n\n\nLa tabla de datos msleep se refiere a las horas de sueño de mamíferos\n\nV/F"
+  },
+  {
+    "objectID": "index.html#autoevaluación-1",
+    "href": "index.html#autoevaluación-1",
+    "title": "Módulo 3: Introducción al tidyverse",
+    "section": "Autoevaluación",
+    "text": "Autoevaluación\n\n\n\n\n\n\n\n\nEstas expresiones dan el mismo resultado:\n\nmsleep %&gt;% filter(order == \"Primates\" | sleep_total &gt;= 10)\nmsleep %&gt;% filter(order == \"Primates\", sleep_total &gt;= 10)\nV/F\n\n\n\nEsta expresión filtra la tabla iris excluyendo la categoría virginica de la columna Species\n\niris %&gt;% filter(Species != \"virginica\")\nV/F\n\n\n\nEn la anterior expresión NO estoy haciendo cambios en la tabla iris\n\nV/F\n\n\n\nDeseo calcular la suma de Petal.Width por Species de la tabla iris. Es correcta la siguiente expresión\n\niris %&gt;% filter(Species) %&gt;% summarize(suma = sum())\nV/F"
+  },
+  {
+    "objectID": "index.html#introducción-1",
+    "href": "index.html#introducción-1",
+    "title": "Módulo 3: Introducción al tidyverse",
+    "section": "Introducción",
+    "text": "Introducción\n\n\nExisten varias funciones base para importar datos (read.table, read.csv, read.csv2 y más).\nUna limitación de estas es que no son compatibles con el formato más usado: Excel.\nDentro del tidyverse contamos con los paquetes readr y readxl que ofrecen funciones para importar tablas de archivos en varios formatos, incluyendo Excel.\nLas extensiones de tablas más comunes son:\n\n.csv: comma separated values, o valores separados por comas (aunque las comas no son un requisito)\n.txt: archivos de texto (como los producidos por notepad en Windows)\n.xlsx: archivos de Excel\n\nR también es capaz de importar tablas de otro tipo de software, por ejemplo SAS, SPSS o minitab. Pero para ello requiere de otros paquetes fuera del tidyverse."
+  },
+  {
+    "objectID": "index.html#preparando-el-ambiente-de-trabajo",
+    "href": "index.html#preparando-el-ambiente-de-trabajo",
+    "title": "Módulo 3: Introducción al tidyverse",
+    "section": "Preparando el ambiente de trabajo",
+    "text": "Preparando el ambiente de trabajo\n\nCrea una carpeta por cada proyecto de trabajo en R en donde tu desees. Puede ser algo como:\n\n\n\n\n\n\n\n\nIngresa a la sección de “Materiales y recursos” del curso y descarga el archivo comprimido datos.zip.\n\n\n\n\nExtrae los archivos en el directorio que creaste."
+  },
+  {
+    "objectID": "index.html#preparando-el-ambiente-de-trabajo-1",
+    "href": "index.html#preparando-el-ambiente-de-trabajo-1",
+    "title": "Módulo 3: Introducción al tidyverse",
+    "section": "Preparando el ambiente de trabajo",
+    "text": "Preparando el ambiente de trabajo\n\nEn R, crea un nuevo script donde en la primera línea utilizaremos la función setwd\n\n\n\nsetwd nos permitirá predeterminar la ubicación de nuestro directorio de trabajo.\nComo argumento, utiliza la dirección del directorio.\n\nPodemos copiar la dirección desde el explorador de Windows\nó, podemos guardar el archivo de R en nuestro directorio, y obtener la dirección desde la sesión de RStudio\n\nEn mi caso, la primera línea de este archivo de R queda de la siguiente forma:\n\n\n\n\nsetwd(\"C:/Users/mmore/Documents/curso_estadistica/ejemplos\")\n\n\n\n\nDe esta manera, los objetos que importemos y exportemos dentro de la sesión de R con este archivo serán contenidos en nuestro directorio de trabajo.\n\n\n\n\nGuarda el archivo de R en el directorio que creaste (en caso de no haberlo hecho antes)."
+  },
+  {
+    "objectID": "index.html#importando-archivos-.csv",
+    "href": "index.html#importando-archivos-.csv",
+    "title": "Módulo 3: Introducción al tidyverse",
+    "section": "Importando archivos .csv",
+    "text": "Importando archivos .csv"
+  },
+  {
+    "objectID": "index.html#importando-archivos-.csv-1",
+    "href": "index.html#importando-archivos-.csv-1",
+    "title": "Módulo 3: Introducción al tidyverse",
+    "section": "Importando archivos .csv",
+    "text": "Importando archivos .csv\n\n\nPara esta sección utilizaremos como ejemplo los datos del Prof. Touchon acerca de una investigación de recursos por depredación en ranas arbóreas de ojos rojos en Panamá."
+  },
+  {
+    "objectID": "index.html#importando-archivos-.csv-2",
+    "href": "index.html#importando-archivos-.csv-2",
+    "title": "Módulo 3: Introducción al tidyverse",
+    "section": "Importando archivos .csv",
+    "text": "Importando archivos .csv\nR base\n\nsetwd(\"C:/Users/mmore/Documents/curso_estadistica/ejemplos\")\n\nranas &lt;- read.csv(\"touchon.csv\")\nhead(ranas)"
+  },
+  {
+    "objectID": "index.html#importando-archivos-.csv-3",
+    "href": "index.html#importando-archivos-.csv-3",
+    "title": "Módulo 3: Introducción al tidyverse",
+    "section": "Importando archivos .csv",
+    "text": "Importando archivos .csv\nR base\n\nsetwd(\"C:/Users/mmore/Documents/curso_estadistica/ejemplos\")\n\nranas &lt;- read.csv(\"touchon.csv\")\nhead(ranas)\n\n\n\n  Block Tank.Unique Pred Hatch Res  Age.DPO Age.FromEmergence SVL.initial\n1     1           1   NL     L  Hi 47.19149          13.19149    19.42553\n2     1           2    C     E  Hi 45.38095          11.38095    18.40476\n3     1           3    C     L  Hi 53.82222          19.82222    18.92667\n4     1           4    L     L  Lo 56.92308          22.92308    18.82692\n5     1           5   NL     E  Hi 64.75000          30.75000    19.71500\n6     1           6    L     E  Hi 44.00000          10.00000    21.47500\n  Tail.initial SVL.final Mass.final Resorb.days\n1     4.834043  19.65957  0.4178723    3.489362\n2     5.369048  19.00952  0.3821429    3.785714\n3     4.802222  19.12000  0.4117778    3.511111\n4     4.634615  19.11538  0.3823077    3.653846\n5     5.435000  20.11000  0.4865000    4.225000\n6     7.837500  21.97500  0.7375000    5.000000"
+  },
+  {
+    "objectID": "index.html#importando-archivos-.csv-4",
+    "href": "index.html#importando-archivos-.csv-4",
+    "title": "Módulo 3: Introducción al tidyverse",
+    "section": "Importando archivos .csv",
+    "text": "Importando archivos .csv\ntidyverse\n\nsetwd(\"C:/Users/mmore/Documents/curso_estadistica/ejemplos\")\nlibrary(readr)\nranas &lt;- read_csv(\"touchon.csv\")\nranas"
+  },
+  {
+    "objectID": "index.html#importando-archivos-.csv-5",
+    "href": "index.html#importando-archivos-.csv-5",
+    "title": "Módulo 3: Introducción al tidyverse",
+    "section": "Importando archivos .csv",
+    "text": "Importando archivos .csv\ntidyverse\n\nsetwd(\"C:/Users/mmore/Documents/curso_estadistica/ejemplos\")\nlibrary(readr)\nranas &lt;- read_csv(\"touchon.csv\")\nranas\n\n\n\n# A tibble: 78 × 12\n   Block Tank.Unique Pred  Hatch Res   Age.DPO Age.FromEmergence SVL.initial\n   &lt;dbl&gt;       &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;   &lt;dbl&gt;             &lt;dbl&gt;       &lt;dbl&gt;\n 1     1           1 NL    L     Hi       47.2              13.2        19.4\n 2     1           2 C     E     Hi       45.4              11.4        18.4\n 3     1           3 C     L     Hi       53.8              19.8        18.9\n 4     1           4 L     L     Lo       56.9              22.9        18.8\n 5     1           5 NL    E     Hi       64.8              30.8        19.7\n 6     1           6 L     E     Hi       44                10          21.5\n 7     1           7 NL    L     Lo       67.7              33.7        19.0\n 8     1           8 C     E     Lo       95.9              61.9        17.9\n 9     1           9 L     L     Hi       45.2              11.2        21.3\n10     1          10 C     L     Lo       64.9              30.9        18.9\n# ℹ 68 more rows\n# ℹ 4 more variables: Tail.initial &lt;dbl&gt;, SVL.final &lt;dbl&gt;, Mass.final &lt;dbl&gt;,\n#   Resorb.days &lt;dbl&gt;"
+  },
+  {
+    "objectID": "index.html#antes-de-continuar",
+    "href": "index.html#antes-de-continuar",
+    "title": "Módulo 3: Introducción al tidyverse",
+    "section": "Antes de continuar…",
+    "text": "Antes de continuar…\n\n\nTanto las funciones read.csv como read_csv tienen por default la coma (,) como separador de las columnas.\nEn caso de encontrarte con un documento .csv donde otro separador es usado, usa las funciones de ayuda para ver la manera correcta de especificar el separador.\nPara importar archivos .txt se usan de manera similar las funciones read.table y read_table de base R y tidyverse, respectivamente."
+  },
+  {
+    "objectID": "index.html#importando-archivos-de-excel",
+    "href": "index.html#importando-archivos-de-excel",
+    "title": "Módulo 3: Introducción al tidyverse",
+    "section": "Importando archivos de Excel",
+    "text": "Importando archivos de Excel\n\nUsaremos el archivo rotXLS.xlsx y el paquete readxl\n\n\n\nlibrary(readxl)\nrotavirus &lt;- read_excel(\"rotXLS.xlsx\")\nrotavirus"
+  },
+  {
+    "objectID": "index.html#importando-archivos-de-excel-1",
+    "href": "index.html#importando-archivos-de-excel-1",
+    "title": "Módulo 3: Introducción al tidyverse",
+    "section": "Importando archivos de Excel",
+    "text": "Importando archivos de Excel\n\nUsaremos el archivo rotXLS.xlsx y el paquete readxl\n\n\nlibrary(readxl)\nrotavirus &lt;- read_excel(\"rotXLS.xlsx\")\nrotavirus\n\n# A tibble: 1,043 × 12\n   date                cases  week incidence    FM     RSK SHK_TAG    PM    TMK\n   &lt;dttm&gt;              &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;\n 1 2001-01-07 00:00:00     0    14      0     3.35 0           0   1003.  3.86 \n 2 2001-01-14 00:00:00     8    15      0.23  1.65 0           0   1029. -2.35 \n 3 2001-01-21 00:00:00    12    16      0.34  3.15 0.0545      0.2 1018. -0.364\n 4 2001-01-28 00:00:00    59    17      1.69  5.98 3.75        0    992.  2.47 \n 5 2001-02-04 00:00:00    55    18      1.57  5.88 6.39        3.3  999. -4.92 \n 6 2001-02-11 00:00:00    76    19      2.17  4.68 0.218       0   1024.  6.29 \n 7 2001-02-18 00:00:00    92    20      2.63  5.18 0.00909     0   1023.  2.88 \n 8 2001-02-25 00:00:00    87    21      2.49  3.92 0.0545     11.2 1000. -2.49 \n 9 2001-03-04 00:00:00   103    22      2.95  3.72 3.37        2.3  991. -0.109\n10 2001-03-11 00:00:00   110    23      3.15  3.48 0.664       0    998.  9.65 \n# ℹ 1,033 more rows\n# ℹ 3 more variables: TXK &lt;dbl&gt;, TNK &lt;dbl&gt;, UPM &lt;dbl&gt;\n\n\n\n\nEn el caso de archivos de Excel con varias páginas, podemos especificar qué página importar con el argumento sheet dentro de la función read_excel."
+  },
+  {
+    "objectID": "index.html#exportación-de-datos",
+    "href": "index.html#exportación-de-datos",
+    "title": "Módulo 3: Introducción al tidyverse",
+    "section": "Exportación de datos",
+    "text": "Exportación de datos\nArchivos .csv\n\n# con R base\nwrite.csv(ranas, \"copia_touchon.csv\", row.names = F)\n\n# con tidyverse\nwrite_csv(ranas, \"copia_touchon.csv\")"
+  },
+  {
+    "objectID": "index.html#exportación-de-datos-1",
+    "href": "index.html#exportación-de-datos-1",
+    "title": "Módulo 3: Introducción al tidyverse",
+    "section": "Exportación de datos",
+    "text": "Exportación de datos\nArchivos .xlsx\n\nreadxl no tiene funcionalidad para exportar tablas con extensión .xlsx\n\n\n\nUsaremos el paquete writexl\n\n\ninstall.packages(\"writexl\")\nlibrary(writexl)\nwrite_xlsx(rotavirus, \"copia_rotavirus.xlsx\")"
+  },
+  {
+    "objectID": "index.html#introducción-2",
+    "href": "index.html#introducción-2",
+    "title": "Módulo 3: Introducción al tidyverse",
+    "section": "Introducción",
+    "text": "Introducción\n\n\nUna destreza importantísima en el análisis de datos es el saber manejar tablas:\n\nLos datos no siempre están organizados de la manera que desearíamos.\nDependiendo de las funciones a usar, necesitamos hacer conversiones entre formatos (de largo a ancho o viceversa). Por ejemplo, el paquete ggplot2 funciona generalmente con tablas en formato largo.\nTablas organizadas en formato largo son de más fácil acceso para tareas iterativas (computacionalmente más eficientes).\n\nNos enfocaremos en operaciones básicas con tablas de datos.\nTodas las transformaciones que veremos aquí, es posible realizarlas con R base. Sin embargo, nos enfocaremos en el uso del tidyverse puesto que su sintaxis es más intuitiva."
+  },
+  {
+    "objectID": "index.html#transformación-de-formatos",
+    "href": "index.html#transformación-de-formatos",
+    "title": "Módulo 3: Introducción al tidyverse",
+    "section": "Transformación de formatos",
+    "text": "Transformación de formatos"
+  },
+  {
+    "objectID": "index.html#transformación-de-formatos-1",
+    "href": "index.html#transformación-de-formatos-1",
+    "title": "Módulo 3: Introducción al tidyverse",
+    "section": "Transformación de formatos",
+    "text": "Transformación de formatos\nDe formato ancho a largo\n\nUtilizaremos la función pivot_longer del paquete tidyr con la tabla de base air_quality\n\n\n\nlibrary(dplyr)\nlibrary(tidyr)\n\ntabla_larga &lt;- airquality %&gt;%\n  pivot_longer(everything())"
+  },
+  {
+    "objectID": "index.html#transformación-de-formatos-2",
+    "href": "index.html#transformación-de-formatos-2",
+    "title": "Módulo 3: Introducción al tidyverse",
+    "section": "Transformación de formatos",
+    "text": "Transformación de formatos\nDe formato ancho a largo\n\nUtilizaremos la función pivot_longer del paquete tidyr con la tabla de base air_quality\n\n\nlibrary(dplyr)\nlibrary(tidyr)\n\ntabla_larga &lt;- airquality %&gt;%\n  pivot_longer(everything())\n\ntabla_larga\n\n# A tibble: 918 × 2\n   name    value\n   &lt;chr&gt;   &lt;dbl&gt;\n 1 Ozone    41  \n 2 Solar.R 190  \n 3 Wind      7.4\n 4 Temp     67  \n 5 Month     5  \n 6 Day       1  \n 7 Ozone    36  \n 8 Solar.R 118  \n 9 Wind      8  \n10 Temp     72  \n# ℹ 908 more rows"
+  },
+  {
+    "objectID": "index.html#transformación-de-formatos-3",
+    "href": "index.html#transformación-de-formatos-3",
+    "title": "Módulo 3: Introducción al tidyverse",
+    "section": "Transformación de formatos",
+    "text": "Transformación de formatos\nDe formato ancho a largo\n\nUtilizaremos la función pivot_longer del paquete tidyr con la tabla de base air_quality\nPodemos asignar nombres.\n\n\ntabla_larga &lt;- airquality %&gt;%\n  pivot_longer(everything(), names_to = \"variable\", values_to = \"valores\")"
+  },
+  {
+    "objectID": "index.html#transformación-de-formatos-4",
+    "href": "index.html#transformación-de-formatos-4",
+    "title": "Módulo 3: Introducción al tidyverse",
+    "section": "Transformación de formatos",
+    "text": "Transformación de formatos\nDe formato ancho a largo\n\nUtilizaremos la función pivot_longer del paquete tidyr con la tabla de base air_quality\nPodemos asignar nombres.\nMantener columnas en la transformación.\n\n\ntabla_larga &lt;- airquality %&gt;%\n  pivot_longer(c(Ozone, Solar.R, Wind, Temp), \n               names_to = \"variable\", values_to = \"valores\")\n\ntabla_larga\n\n# A tibble: 612 × 4\n   Month   Day variable valores\n   &lt;int&gt; &lt;int&gt; &lt;chr&gt;      &lt;dbl&gt;\n 1     5     1 Ozone       41  \n 2     5     1 Solar.R    190  \n 3     5     1 Wind         7.4\n 4     5     1 Temp        67  \n 5     5     2 Ozone       36  \n 6     5     2 Solar.R    118  \n 7     5     2 Wind         8  \n 8     5     2 Temp        72  \n 9     5     3 Ozone       12  \n10     5     3 Solar.R    149  \n# ℹ 602 more rows"
+  },
+  {
+    "objectID": "index.html#transformación-de-formatos-5",
+    "href": "index.html#transformación-de-formatos-5",
+    "title": "Módulo 3: Introducción al tidyverse",
+    "section": "Transformación de formatos",
+    "text": "Transformación de formatos\nDe formato largo a ancho\n\nUtilizaremos la función pivot_wider\n\n\ntabla_ancha &lt;- tabla_larga %&gt;%\n  pivot_wider(names_from = \"variable\",\n              values_from = \"valores\")"
+  },
+  {
+    "objectID": "index.html#transformación-de-formatos-6",
+    "href": "index.html#transformación-de-formatos-6",
+    "title": "Módulo 3: Introducción al tidyverse",
+    "section": "Transformación de formatos",
+    "text": "Transformación de formatos\nDe formato largo a ancho\n\nUtilizaremos la función pivot_wider\n\n\ntabla_ancha &lt;- tabla_larga %&gt;%\n  pivot_wider(names_from = \"variable\",\n              values_from = \"valores\")\n\ntabla_ancha\n\n# A tibble: 153 × 6\n   Month   Day Ozone Solar.R  Wind  Temp\n   &lt;int&gt; &lt;int&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n 1     5     1    41     190   7.4    67\n 2     5     2    36     118   8      72\n 3     5     3    12     149  12.6    74\n 4     5     4    18     313  11.5    62\n 5     5     5    NA      NA  14.3    56\n 6     5     6    28      NA  14.9    66\n 7     5     7    23     299   8.6    65\n 8     5     8    19      99  13.8    59\n 9     5     9     8      19  20.1    61\n10     5    10    NA     194   8.6    69\n# ℹ 143 more rows"
+  },
+  {
+    "objectID": "index.html#autoevaluación-2",
+    "href": "index.html#autoevaluación-2",
+    "title": "Módulo 3: Introducción al tidyverse",
+    "section": "Autoevaluación",
+    "text": "Autoevaluación\n\n\n\n\n\n\n\n\nLa tabla de datos airquality trata de\n\na) Medidas de calidad de aire en Nueva York\nb) Medidas de contaminación de aire\nc) Medidas de presión atmosférica en UK\n\n\n\n¿Por qué debemos cambiar \\ por / en R?\n\na) Da igual, no es necesario\nb) Puede provocar errores porque \\ es usado para caracteres especiales\nc) Solo es necesario en Windows\n\n\n\nEn la función write.csv, si el argumento row.names no es seteado como F\n\na) El archivo .csv creado contendrá una columna extra indicando el número de fila\nb) El separador de columnas será el punto y coma en lugar de la coma\nc) No pasa nada"
+  },
+  {
+    "objectID": "index.html#autoevaluación-3",
+    "href": "index.html#autoevaluación-3",
+    "title": "Módulo 3: Introducción al tidyverse",
+    "section": "Autoevaluación",
+    "text": "Autoevaluación\nmtcars es una tabla de base R.\n\n\n\n\n\n\n\n\nEsta tabla es rectangular\n\nV/F\n\n\n\nEn el siguiente código:\n\ntabla_cars &lt;- mtcars\nhead(tabla_cars)\ntabla_cars$marca &lt;- row.names(tabla_cars)\ntabla_cars %&gt;% \n  pivot_longer(-c(\"marca\"), \n               names_to = \"variable\", \n               values_to = \"valores\")\n\n\n\n\n\n\n\n\n\nEn la línea 1 estamos creando una copia de mtcars\n\nV/F\n\n\n\nEn la línea 3 estamos\n\na) Cambiando los nombres de las columnas de tabla_cars\nb) Extrayendo los nombres de las filas de tabla_cars\nc) Creando una nueva variable con los nombres de las marcas de autos\n\n\n\nEn las líneas 4 a 7 estamos\n\na) Transformando de formato largo a ancho\nb) Transformando de formato ancho a largo\nc) Preparando la tabla para exportar\n\n\n\nLa expresión -c(\"marca\") significa\n\na) Que estamos borrando la columna “marca” de tabla_cars\nb) Que excluya “marca” del pivot\nc) Ninguna de las anteriores"
+  },
+  {
+    "objectID": "index.html#funciones-y-librerías-en-esta-sesión",
+    "href": "index.html#funciones-y-librerías-en-esta-sesión",
+    "title": "Módulo 3: Introducción al tidyverse",
+    "section": "Funciones y librerías en esta sesión",
+    "text": "Funciones y librerías en esta sesión\nFunciones\n\nhead nos muestra las primeras 10 filas de una tabla de datos.\npaste0 permite combinar dos o más elementos en una cadena de caracteres sin espacio entre ellos.\nmin y max encuentran los valores mínimo y máximo de un objeto.\nsum calcula la suma de los elementos de un objeto.\nsetwd determina el directorio de trabajo para la sesión de R.\nrow.names devuelve los nombres de las filas de una tabla en forma de un objeto (vector).\n\nLibrerías\n\ndplyr, parte del tidyverse.\n\n%&gt;% operador de cascada.\nfilter nos ayuda a filtrar filas.\nselect nos ayuda a seleccionar columnas.\narrange ordena en una variable (alfabética o numéricamente).\ndesc determina si el orden debe ser descendente.\nmutate sirve para crear una nueva columna en un tibble.\nn función que devuelve el tamaño (conteo) de una variable.\ngroup_by agrupa una variable en tantos grupos como niveles posea la variable.\n\ntidyr, parte del tidyverse.\n\nseparate sirve para separar una columna en otras más si es que existe una expresión regular.\nunite hace lo contrario a separate.\npivot_longer transforma tablas de formato ancho a largo.\npivot_wider transofrma tablas de formato largo a ancho.\n\nreadr, parte del tidyverse\n\nread_csv equivalente a read.csv de R base, importa tablas de extensión .csv.\n\nreadxl, parte del tidyverse\n\nread_excel es la función para importar tablas de Excel\n\nwritexl es un paquete que ofrece funcionalidades para trabajar con archivos de Excel.\n\nwrite_xlsx exporta tablas de datos de R a extensión .xlsx."
+  }
+]
