@@ -172,10 +172,10 @@ La mayor parte de ejemplos aquí tomados provienen de [*Data organization in Spr
 :::
 :::
 
-## Operador de cascada (*pipeline operator*) {.smaller}
+## Operador de cascada (*pipe operator*) {.smaller}
 
 ::: incremental
--   Antes de comenzar directamente con `dplyr`, daremos un vistazo al operador de cascada: `%>%`.
+-   Antes de comenzar directamente con `dplyr`, daremos un vistazo al operador de cascada: `%>%`. 
 
 -   Entendamos a `%>%` como la palabra "entonces". En términos sencillos, es algo como: "Tengo harina `%>%` hago pan"
 
@@ -191,6 +191,24 @@ La mayor parte de ejemplos aquí tomados provienen de [*Data organization in Spr
 
 -   Noten como el uso `%>%` nos facilita la interpretación de la secuencia de acciones.
 :::
+
+## Operador de cascada nativo de R 
+
+::: incremental
+
+-   A partir de la versión de R 4.1.0, R tiene un operador de cascada nativo: `|>`.
+
+-   Este es parte del paquete `magrittr`.
+
+-   En principio no existe diferencia entre `%>%` y `|>`.
+
+-   Un incoveniente que se puede presentar es el utilizar el operador nativo en combinación con tutoriales de `dplyr` creados en versiones de R anteriores a 4.1.0.
+
+-   De aquí en adelante, usaremos el operador de `dplyr`.
+
+:::
+
+# Operaciones básicas con `dplyr`
 
 ## Filtrando filas {.smaller}
 
@@ -421,10 +439,10 @@ msleep %>%
   mutate(sleep_total_min = sleep_total * 60)
 ```
 
-## Separando columnas {.smaller}
+## Dividiendo columnas {.smaller}
 
 ::: incremental
--   Idealmente, deberíamos tratar de contar con un solo tipo de información por columna ("Una sola cosa a la vez", slide #9)
+-   Idealmente, deberíamos tratar de contar con un solo tipo de información por columna ("Una sola cosa a la vez")
 
 -   Sin embargo, sobretodo cuando recibimos datos de terceros, nos podemos encontrar con este problema.
 
@@ -447,7 +465,7 @@ ej_separate <- ej_separate[, c(1, 12)]
 head(ej_separate)
 ```
 
-## Separando columnas {.smaller visibility="uncounted" auto-animate="true"}
+## Dividiendo columnas {.smaller visibility="uncounted" auto-animate="true"}
 
 -   Idealmente, deberíamos tratar de contar con un solo tipo de información por columna ("Una sola cosa a la vez", slide #9)
 
@@ -468,7 +486,7 @@ ej_separate <- ej_separate[, c(1, 12)]
 head(ej_separate)
 ```
 
-## Separando columnas {.smaller visibility="uncounted" auto-animate="true"}
+## Dividiendo columnas {.smaller visibility="uncounted" auto-animate="true"}
 
 ```{r echo=T, eval=T}
 head(ej_separate)
@@ -488,7 +506,7 @@ ej_separate %>%
            into = c("genus", "vore"), sep = "-")
 ```
 
-## Separando columnas {.smaller visibility="uncounted" auto-animate="true"}
+## Dividiendo columnas {.smaller visibility="uncounted" auto-animate="true"}
 
 ```{r echo=T, eval=T}
 head(ej_separate)
@@ -689,51 +707,19 @@ msleep %>%
 -   R también es capaz de importar tablas de otro tipo de software, por ejemplo SAS, SPSS o minitab. Pero para ello requiere de otros paquetes fuera del `tidyverse`.
 :::
 
-## Preparando el ambiente de trabajo {.smaller}
+## ¡Manos a la obra! 
 
-1)  Crea una carpeta por cada proyecto de trabajo en R en donde tu desees. Puede ser algo como:
+1)  Crea un proyecto en R (como ya lo vimos en el módulo anterior).
 
-![](images/directorio.png){fig-align="center" height="75"}
+2)  Crea dentro de este proyecto una carpeta de nombre "datos"
 
-. . .
+3)  Ingresa a la sección de ["Materiales y recursos"](https://mmorenozam.github.io/see-quarto-website/materiales.html){target="_blank"} del curso y descarga el archivo comprimido datos.zip.
 
-2)  Ingresa a la sección de ["Materiales y recursos"](https://mmorenozam.github.io/progR-website/materiales.html){target="_blank"} del curso y descarga el archivo comprimido datos.zip.
+4)  Extrae los archivos del .zip en tu carpeta de "datos".
 
-. . .
 
-3)  Extrae los archivos en el directorio que creaste.
 
-![](images/directorio2.png){fig-align="center" height="250"}
 
-## Preparando el ambiente de trabajo {.smaller visibility="uncounted"}
-
-4)  En R, crea un nuevo script donde en la primera línea utilizaremos la función `setwd`
-
-::: incremental
--   `setwd` nos permitirá predeterminar la ubicación de nuestro directorio de trabajo.
-
--   Como argumento, utiliza la dirección del directorio.
-
-    -   Podemos copiar la dirección desde el explorador de Windows
-
-    -   ó, podemos guardar el archivo de R en nuestro directorio, y obtener la dirección desde la sesión de RStudio
-
--   En mi caso, la primera línea de este archivo de R queda de la siguiente forma:
-:::
-
-. . .
-
-```{r echo=T, eval=F}
-setwd("C:/Users/mmore/Documents/curso_estadistica/ejemplos")
-```
-
-. . .
-
--   De esta manera, los objetos que importemos y exportemos dentro de la sesión de R con este archivo serán contenidos en nuestro directorio de trabajo.
-
-. . .
-
-5)  Guarda el archivo de R en el directorio que creaste (en caso de no haberlo hecho antes).
 
 ## Importando archivos .csv
 
@@ -754,10 +740,8 @@ setwd("C:/Users/mmore/Documents/curso_estadistica/ejemplos")
 **R base**
 
 ```{r echo=T, eval=F}
-#| code-line-numbers: "1|3|4"
-setwd("C:/Users/mmore/Documents/curso_estadistica/ejemplos")
-
-ranas <- read.csv("touchon.csv")
+#| code-line-numbers: "1|2"
+ranas <- read.csv("datos/touchon.csv")
 head(ranas)
 ```
 
@@ -766,14 +750,12 @@ head(ranas)
 **R base**
 
 ```{r echo=T, eval=F}
-setwd("C:/Users/mmore/Documents/curso_estadistica/ejemplos")
-
-ranas <- read.csv("touchon.csv")
+ranas <- read.csv("datos/touchon.csv")
 head(ranas)
 ```
 
 ```{r echo=F, eval=T}
-ranas <- read.csv("touchon.csv")
+ranas <- read.csv("datos/touchon.csv")
 head(ranas)
 ```
 
@@ -782,10 +764,9 @@ head(ranas)
 **`tidyverse`**
 
 ```{r echo=T, eval=F}
-#| code-line-numbers: "1|2|3|4"
-setwd("C:/Users/mmore/Documents/curso_estadistica/ejemplos")
+#| code-line-numbers: "1|2|3"
 library(readr)
-ranas <- read_csv("touchon.csv")
+ranas <- read_csv("datos/touchon.csv")
 ranas
 ```
 
@@ -794,15 +775,14 @@ ranas
 **`tidyverse`**
 
 ```{r echo=T, eval=F}
-setwd("C:/Users/mmore/Documents/curso_estadistica/ejemplos")
 library(readr)
-ranas <- read_csv("touchon.csv")
+ranas <- read_csv("datos/touchon.csv")
 ranas
 ```
 
 ```{r echo=F, eval=T}
 library(readr)
-ranas <- read_csv("touchon.csv")
+ranas <- read_csv("datos/touchon.csv")
 ranas
 ```
 
@@ -825,7 +805,7 @@ ranas
 ```{r echo=T, eval=F}
 #| code-line-numbers: "1|2|3"
 library(readxl)
-rotavirus <- read_excel("rotXLS.xlsx")
+rotavirus <- read_excel("datos/rotXLS.xlsx")
 rotavirus
 ```
 
@@ -835,7 +815,7 @@ rotavirus
 
 ```{r echo=T, eval=T}
 library(readxl)
-rotavirus <- read_excel("rotXLS.xlsx")
+rotavirus <- read_excel("datos/rotXLS.xlsx")
 rotavirus
 ```
 
@@ -845,15 +825,27 @@ rotavirus
 
 ## Exportación de datos
 
+::: incremental
+
+-   Como habíamos mencionado, una buena práctica en la organización de nuestros proyectos es tener una buena estructura de los directorios dentro de los mismos.
+
+-   Una de estas es el crear nuevas carpetas donde guardemos los *outputs* de nuestros análisis.
+
+-   Crearemos entonces, una carpeta de nombre "outputs" y exportaremos ahí los datos a continuación.
+
+:::
+
+## Exportación de datos {visibility="uncounted"}
+
 **Archivos .csv**
 
 ```{r echo=T, eval=F}
 #| code-line-numbers: "2|5"
 # con R base
-write.csv(ranas, "copia_touchon.csv", row.names = F)
+write.csv(ranas, "outputs/copia_touchon.csv", row.names = F)
 
 # con tidyverse
-write_csv(ranas, "copia_touchon.csv")
+write_csv(ranas, "outputs/copia_touchon.csv")
 ```
 
 ## Exportación de datos {visibility="uncounted"}
@@ -870,8 +862,25 @@ write_csv(ranas, "copia_touchon.csv")
 #| code-line-numbers: "1|2|3"
 install.packages("writexl")
 library(writexl)
-write_xlsx(rotavirus, "copia_rotavirus.xlsx")
+write_xlsx(rotavirus, "outputs/copia_rotavirus.xlsx")
 ```
+
+
+## Antes de continuar...
+
+::: incremental
+
+-   Es importante mencionar las formas en las que podemos indicarle a R los *paths* de los archivos que contienen nuestros datos:
+
+    -   Crearlos manualmente
+    
+    -   Directamente dentro de R
+    
+    -   Copiarlos desde el explorador de Windows
+
+-   Para usuarios de Windows (esto no sucede con sistemas operativos MacOS ni basados en Unix), la manera en que los subdirectorios están separados es con `\`. `\` es un caracter especial que puede producir errores dentro de R, por ello, si usamos la última opción listada, debemos cambiarlos por `/`
+
+:::
 
 # Operaciones con tablas de datos
 

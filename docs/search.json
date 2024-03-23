@@ -382,28 +382,28 @@
     "href": "index.html#importando-archivos-.csv-2",
     "title": "Módulo 3: Introducción al tidyverse",
     "section": "Importando archivos .csv",
-    "text": "Importando archivos .csv\nR base\n\nsetwd(\"C:/Users/mmore/Documents/curso_estadistica/ejemplos\")\n\nranas &lt;- read.csv(\"touchon.csv\")\nhead(ranas)"
+    "text": "Importando archivos .csv\nR base\n\nranas &lt;- read.csv(\"datos/touchon.csv\")\nhead(ranas)"
   },
   {
     "objectID": "index.html#importando-archivos-.csv-3",
     "href": "index.html#importando-archivos-.csv-3",
     "title": "Módulo 3: Introducción al tidyverse",
     "section": "Importando archivos .csv",
-    "text": "Importando archivos .csv\nR base\n\nsetwd(\"C:/Users/mmore/Documents/curso_estadistica/ejemplos\")\n\nranas &lt;- read.csv(\"touchon.csv\")\nhead(ranas)\n\n\n\n  Block Tank.Unique Pred Hatch Res  Age.DPO Age.FromEmergence SVL.initial\n1     1           1   NL     L  Hi 47.19149          13.19149    19.42553\n2     1           2    C     E  Hi 45.38095          11.38095    18.40476\n3     1           3    C     L  Hi 53.82222          19.82222    18.92667\n4     1           4    L     L  Lo 56.92308          22.92308    18.82692\n5     1           5   NL     E  Hi 64.75000          30.75000    19.71500\n6     1           6    L     E  Hi 44.00000          10.00000    21.47500\n  Tail.initial SVL.final Mass.final Resorb.days\n1     4.834043  19.65957  0.4178723    3.489362\n2     5.369048  19.00952  0.3821429    3.785714\n3     4.802222  19.12000  0.4117778    3.511111\n4     4.634615  19.11538  0.3823077    3.653846\n5     5.435000  20.11000  0.4865000    4.225000\n6     7.837500  21.97500  0.7375000    5.000000"
+    "text": "Importando archivos .csv\nR base\n\nranas &lt;- read.csv(\"datos/touchon.csv\")\nhead(ranas)\n\n\n\n  Block Tank.Unique Pred Hatch Res  Age.DPO Age.FromEmergence SVL.initial\n1     1           1   NL     L  Hi 47.19149          13.19149    19.42553\n2     1           2    C     E  Hi 45.38095          11.38095    18.40476\n3     1           3    C     L  Hi 53.82222          19.82222    18.92667\n4     1           4    L     L  Lo 56.92308          22.92308    18.82692\n5     1           5   NL     E  Hi 64.75000          30.75000    19.71500\n6     1           6    L     E  Hi 44.00000          10.00000    21.47500\n  Tail.initial SVL.final Mass.final Resorb.days\n1     4.834043  19.65957  0.4178723    3.489362\n2     5.369048  19.00952  0.3821429    3.785714\n3     4.802222  19.12000  0.4117778    3.511111\n4     4.634615  19.11538  0.3823077    3.653846\n5     5.435000  20.11000  0.4865000    4.225000\n6     7.837500  21.97500  0.7375000    5.000000"
   },
   {
     "objectID": "index.html#importando-archivos-.csv-4",
     "href": "index.html#importando-archivos-.csv-4",
     "title": "Módulo 3: Introducción al tidyverse",
     "section": "Importando archivos .csv",
-    "text": "Importando archivos .csv\ntidyverse\n\nsetwd(\"C:/Users/mmore/Documents/curso_estadistica/ejemplos\")\nlibrary(readr)\nranas &lt;- read_csv(\"touchon.csv\")\nranas"
+    "text": "Importando archivos .csv\ntidyverse\n\nlibrary(readr)\nranas &lt;- read_csv(\"datos/touchon.csv\")\nranas"
   },
   {
     "objectID": "index.html#importando-archivos-.csv-5",
     "href": "index.html#importando-archivos-.csv-5",
     "title": "Módulo 3: Introducción al tidyverse",
     "section": "Importando archivos .csv",
-    "text": "Importando archivos .csv\ntidyverse\n\nsetwd(\"C:/Users/mmore/Documents/curso_estadistica/ejemplos\")\nlibrary(readr)\nranas &lt;- read_csv(\"touchon.csv\")\nranas\n\n\n\n# A tibble: 78 × 12\n   Block Tank.Unique Pred  Hatch Res   Age.DPO Age.FromEmergence SVL.initial\n   &lt;dbl&gt;       &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;   &lt;dbl&gt;             &lt;dbl&gt;       &lt;dbl&gt;\n 1     1           1 NL    L     Hi       47.2              13.2        19.4\n 2     1           2 C     E     Hi       45.4              11.4        18.4\n 3     1           3 C     L     Hi       53.8              19.8        18.9\n 4     1           4 L     L     Lo       56.9              22.9        18.8\n 5     1           5 NL    E     Hi       64.8              30.8        19.7\n 6     1           6 L     E     Hi       44                10          21.5\n 7     1           7 NL    L     Lo       67.7              33.7        19.0\n 8     1           8 C     E     Lo       95.9              61.9        17.9\n 9     1           9 L     L     Hi       45.2              11.2        21.3\n10     1          10 C     L     Lo       64.9              30.9        18.9\n# ℹ 68 more rows\n# ℹ 4 more variables: Tail.initial &lt;dbl&gt;, SVL.final &lt;dbl&gt;, Mass.final &lt;dbl&gt;,\n#   Resorb.days &lt;dbl&gt;"
+    "text": "Importando archivos .csv\ntidyverse\n\nlibrary(readr)\nranas &lt;- read_csv(\"datos/touchon.csv\")\nranas\n\n\n\n# A tibble: 78 × 12\n   Block Tank.Unique Pred  Hatch Res   Age.DPO Age.FromEmergence SVL.initial\n   &lt;dbl&gt;       &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;   &lt;dbl&gt;             &lt;dbl&gt;       &lt;dbl&gt;\n 1     1           1 NL    L     Hi       47.2              13.2        19.4\n 2     1           2 C     E     Hi       45.4              11.4        18.4\n 3     1           3 C     L     Hi       53.8              19.8        18.9\n 4     1           4 L     L     Lo       56.9              22.9        18.8\n 5     1           5 NL    E     Hi       64.8              30.8        19.7\n 6     1           6 L     E     Hi       44                10          21.5\n 7     1           7 NL    L     Lo       67.7              33.7        19.0\n 8     1           8 C     E     Lo       95.9              61.9        17.9\n 9     1           9 L     L     Hi       45.2              11.2        21.3\n10     1          10 C     L     Lo       64.9              30.9        18.9\n# ℹ 68 more rows\n# ℹ 4 more variables: Tail.initial &lt;dbl&gt;, SVL.final &lt;dbl&gt;, Mass.final &lt;dbl&gt;,\n#   Resorb.days &lt;dbl&gt;"
   },
   {
     "objectID": "index.html#antes-de-continuar",
@@ -417,28 +417,28 @@
     "href": "index.html#importando-archivos-de-excel",
     "title": "Módulo 3: Introducción al tidyverse",
     "section": "Importando archivos de Excel",
-    "text": "Importando archivos de Excel\n\nUsaremos el archivo rotXLS.xlsx y el paquete readxl\n\n\n\nlibrary(readxl)\nrotavirus &lt;- read_excel(\"rotXLS.xlsx\")\nrotavirus"
+    "text": "Importando archivos de Excel\n\nUsaremos el archivo rotXLS.xlsx y el paquete readxl\n\n\n\nlibrary(readxl)\nrotavirus &lt;- read_excel(\"datos/rotXLS.xlsx\")\nrotavirus"
   },
   {
     "objectID": "index.html#importando-archivos-de-excel-1",
     "href": "index.html#importando-archivos-de-excel-1",
     "title": "Módulo 3: Introducción al tidyverse",
     "section": "Importando archivos de Excel",
-    "text": "Importando archivos de Excel\n\nUsaremos el archivo rotXLS.xlsx y el paquete readxl\n\n\nlibrary(readxl)\nrotavirus &lt;- read_excel(\"rotXLS.xlsx\")\nrotavirus\n\n# A tibble: 1,043 × 12\n   date                cases  week incidence    FM     RSK SHK_TAG    PM    TMK\n   &lt;dttm&gt;              &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;\n 1 2001-01-07 00:00:00     0    14      0     3.35 0           0   1003.  3.86 \n 2 2001-01-14 00:00:00     8    15      0.23  1.65 0           0   1029. -2.35 \n 3 2001-01-21 00:00:00    12    16      0.34  3.15 0.0545      0.2 1018. -0.364\n 4 2001-01-28 00:00:00    59    17      1.69  5.98 3.75        0    992.  2.47 \n 5 2001-02-04 00:00:00    55    18      1.57  5.88 6.39        3.3  999. -4.92 \n 6 2001-02-11 00:00:00    76    19      2.17  4.68 0.218       0   1024.  6.29 \n 7 2001-02-18 00:00:00    92    20      2.63  5.18 0.00909     0   1023.  2.88 \n 8 2001-02-25 00:00:00    87    21      2.49  3.92 0.0545     11.2 1000. -2.49 \n 9 2001-03-04 00:00:00   103    22      2.95  3.72 3.37        2.3  991. -0.109\n10 2001-03-11 00:00:00   110    23      3.15  3.48 0.664       0    998.  9.65 \n# ℹ 1,033 more rows\n# ℹ 3 more variables: TXK &lt;dbl&gt;, TNK &lt;dbl&gt;, UPM &lt;dbl&gt;\n\n\n\n\nEn el caso de archivos de Excel con varias páginas, podemos especificar qué página importar con el argumento sheet dentro de la función read_excel."
+    "text": "Importando archivos de Excel\n\nUsaremos el archivo rotXLS.xlsx y el paquete readxl\n\n\nlibrary(readxl)\nrotavirus &lt;- read_excel(\"datos/rotXLS.xlsx\")\nrotavirus\n\n# A tibble: 1,043 × 12\n   date                cases  week incidence    FM     RSK SHK_TAG    PM    TMK\n   &lt;dttm&gt;              &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;\n 1 2001-01-07 00:00:00     0    14      0     3.35 0           0   1003.  3.86 \n 2 2001-01-14 00:00:00     8    15      0.23  1.65 0           0   1029. -2.35 \n 3 2001-01-21 00:00:00    12    16      0.34  3.15 0.0545      0.2 1018. -0.364\n 4 2001-01-28 00:00:00    59    17      1.69  5.98 3.75        0    992.  2.47 \n 5 2001-02-04 00:00:00    55    18      1.57  5.88 6.39        3.3  999. -4.92 \n 6 2001-02-11 00:00:00    76    19      2.17  4.68 0.218       0   1024.  6.29 \n 7 2001-02-18 00:00:00    92    20      2.63  5.18 0.00909     0   1023.  2.88 \n 8 2001-02-25 00:00:00    87    21      2.49  3.92 0.0545     11.2 1000. -2.49 \n 9 2001-03-04 00:00:00   103    22      2.95  3.72 3.37        2.3  991. -0.109\n10 2001-03-11 00:00:00   110    23      3.15  3.48 0.664       0    998.  9.65 \n# ℹ 1,033 more rows\n# ℹ 3 more variables: TXK &lt;dbl&gt;, TNK &lt;dbl&gt;, UPM &lt;dbl&gt;\n\n\n\n\nEn el caso de archivos de Excel con varias páginas, podemos especificar qué página importar con el argumento sheet dentro de la función read_excel."
   },
   {
     "objectID": "index.html#exportación-de-datos",
     "href": "index.html#exportación-de-datos",
     "title": "Módulo 3: Introducción al tidyverse",
     "section": "Exportación de datos",
-    "text": "Exportación de datos\nArchivos .csv\n\n# con R base\nwrite.csv(ranas, \"copia_touchon.csv\", row.names = F)\n\n# con tidyverse\nwrite_csv(ranas, \"copia_touchon.csv\")"
+    "text": "Exportación de datos\n\n\nComo habíamos mencionado, una buena práctica en la organización de nuestros proyectos es tener una buena estructura de los directorios dentro de los mismos.\nUna de estas es el crear nuevas carpetas donde guardemos los outputs de nuestros análisis.\nCrearemos entonces, una carpeta de nombre “outputs” y exportaremos ahí los datos a continuación."
   },
   {
     "objectID": "index.html#exportación-de-datos-1",
     "href": "index.html#exportación-de-datos-1",
     "title": "Módulo 3: Introducción al tidyverse",
     "section": "Exportación de datos",
-    "text": "Exportación de datos\nArchivos .xlsx\n\nreadxl no tiene funcionalidad para exportar tablas con extensión .xlsx\n\n\n\nUsaremos el paquete writexl\n\n\ninstall.packages(\"writexl\")\nlibrary(writexl)\nwrite_xlsx(rotavirus, \"copia_rotavirus.xlsx\")"
+    "text": "Exportación de datos\nArchivos .csv\n\n# con R base\nwrite.csv(ranas, \"outputs/copia_touchon.csv\", row.names = F)\n\n# con tidyverse\nwrite_csv(ranas, \"outputs/copia_touchon.csv\")"
   },
   {
     "objectID": "index.html#introducción-2",
@@ -516,5 +516,68 @@
     "title": "Módulo 3: Introducción al tidyverse",
     "section": "Funciones y librerías en esta sesión",
     "text": "Funciones y librerías en esta sesión\nFunciones\n\nhead nos muestra las primeras 10 filas de una tabla de datos.\npaste0 permite combinar dos o más elementos en una cadena de caracteres sin espacio entre ellos.\nmin y max encuentran los valores mínimo y máximo de un objeto.\nsum calcula la suma de los elementos de un objeto.\nsetwd determina el directorio de trabajo para la sesión de R.\nrow.names devuelve los nombres de las filas de una tabla en forma de un objeto (vector).\n\nLibrerías\n\ndplyr, parte del tidyverse.\n\n%&gt;% operador de cascada.\nfilter nos ayuda a filtrar filas.\nselect nos ayuda a seleccionar columnas.\narrange ordena en una variable (alfabética o numéricamente).\ndesc determina si el orden debe ser descendente.\nmutate sirve para crear una nueva columna en un tibble.\nn función que devuelve el tamaño (conteo) de una variable.\ngroup_by agrupa una variable en tantos grupos como niveles posea la variable.\n\ntidyr, parte del tidyverse.\n\nseparate sirve para separar una columna en otras más si es que existe una expresión regular.\nunite hace lo contrario a separate.\npivot_longer transforma tablas de formato ancho a largo.\npivot_wider transofrma tablas de formato largo a ancho.\n\nreadr, parte del tidyverse\n\nread_csv equivalente a read.csv de R base, importa tablas de extensión .csv.\n\nreadxl, parte del tidyverse\n\nread_excel es la función para importar tablas de Excel\n\nwritexl es un paquete que ofrece funcionalidades para trabajar con archivos de Excel.\n\nwrite_xlsx exporta tablas de datos de R a extensión .xlsx."
+  },
+  {
+    "objectID": "index.html#operador-de-cascada-pipe-operator",
+    "href": "index.html#operador-de-cascada-pipe-operator",
+    "title": "Módulo 3: Introducción al tidyverse",
+    "section": "Operador de cascada (pipe operator)",
+    "text": "Operador de cascada (pipe operator)\n\n\nAntes de comenzar directamente con dplyr, daremos un vistazo al operador de cascada: %&gt;%.\nEntendamos a %&gt;% como la palabra “entonces”. En términos sencillos, es algo como: “Tengo harina %&gt;% hago pan”\nEn lenguaje R, esto se interpreta como si tuvieramos un objeto A sobre el cual deseamos aplicar una función B. Esto se vería como: B(A)\nAlternativamente, podemos expresarlo como A %&gt;% B.\nAhora supongamos que tengo un objeto sobre el cual quiero llevar a cabo más funciones en una determinada secuencia, quiero sobre A hacer las funciones B, C, D.\nEn base R, esto se vería cómo D(C(B(A)))\nO, alternativamente A %&gt;% B %&gt;% C %&gt;% D\nNoten como el uso %&gt;% nos facilita la interpretación de la secuencia de acciones."
+  },
+  {
+    "objectID": "index.html#operador-de-cascada-nativo-de-r",
+    "href": "index.html#operador-de-cascada-nativo-de-r",
+    "title": "Módulo 3: Introducción al tidyverse",
+    "section": "Operador de cascada nativo de R",
+    "text": "Operador de cascada nativo de R\n\n\nA partir de la versión de R 4.1.0, R tiene un operador de cascada nativo: |&gt;.\nEste es parte del paquete magrittr.\nEn principio no existe diferencia entre %&gt;% y |&gt;.\nUn incoveniente que se puede presentar es el utilizar el operador nativo en combinación con tutoriales de dplyr creados en versiones de R anteriores a 4.1.0.\nDe aquí en adelante, usaremos el operador de dplyr."
+  },
+  {
+    "objectID": "index.html#dividiendo-columnas",
+    "href": "index.html#dividiendo-columnas",
+    "title": "Módulo 3: Introducción al tidyverse",
+    "section": "Dividiendo columnas",
+    "text": "Dividiendo columnas\n\n\nIdealmente, deberíamos tratar de contar con un solo tipo de información por columna (“Una sola cosa a la vez”)\nSin embargo, sobretodo cuando recibimos datos de terceros, nos podemos encontrar con este problema.\nSi el registro de datos fue consistente, es posible separarlo fácilmente usando la función separate de tidyr\ntidyr es otro paquete del tidyverse que ofrece funciones complementarias para manejo de tablas.\nSe diferencia de dplyr en que sus funciones están más enfocadas en brindar transformaciones de formatos de tablas.\nPara ilustrar su uso, supongamos que dos variables de la tabla msleep fueron combinadas en su registro:\n\n\n\n\nej_separate &lt;- msleep\nej_separate$genus_vore &lt;- paste0(ej_separate$genus, \"-\", ej_separate$vore)\nej_separate &lt;- ej_separate[, c(1, 12)]\nhead(ej_separate)"
+  },
+  {
+    "objectID": "index.html#dividiendo-columnas-1",
+    "href": "index.html#dividiendo-columnas-1",
+    "title": "Módulo 3: Introducción al tidyverse",
+    "section": "Dividiendo columnas",
+    "text": "Dividiendo columnas\n\nIdealmente, deberíamos tratar de contar con un solo tipo de información por columna (“Una sola cosa a la vez”, slide #9)\nSin embargo, sobretodo cuando recibimos datos de terceros, nos podemos encontrar con este problema.\nSi el registro de datos fue consistente, es posible separarlo fácilmente usando la función separate de tidyr\ntidyr es otro paquete del tidyverse que ofrece funciones complementarias para manejo de tablas.\nSe diferencia de dplyr en que sus funciones están más enfocadas en brindar transformaciones de formatos de tablas.\nPara ilustrar su uso, supongamos que dos variables de la tabla msleep fueron combinadas en su registro:\n\n\nej_separate &lt;- msleep\nej_separate$genus_vore &lt;- paste0(ej_separate$genus, \"-\", ej_separate$vore)\nej_separate &lt;- ej_separate[, c(1, 12)]\nhead(ej_separate)\n\n# A tibble: 6 × 2\n  name                       genus_vore      \n  &lt;chr&gt;                      &lt;chr&gt;           \n1 Cheetah                    Acinonyx-carni  \n2 Owl monkey                 Aotus-omni      \n3 Mountain beaver            Aplodontia-herbi\n4 Greater short-tailed shrew Blarina-omni    \n5 Cow                        Bos-herbi       \n6 Three-toed sloth           Bradypus-herbi"
+  },
+  {
+    "objectID": "index.html#dividiendo-columnas-2",
+    "href": "index.html#dividiendo-columnas-2",
+    "title": "Módulo 3: Introducción al tidyverse",
+    "section": "Dividiendo columnas",
+    "text": "Dividiendo columnas\n\nhead(ej_separate)\n\n# A tibble: 6 × 2\n  name                       genus_vore      \n  &lt;chr&gt;                      &lt;chr&gt;           \n1 Cheetah                    Acinonyx-carni  \n2 Owl monkey                 Aotus-omni      \n3 Mountain beaver            Aplodontia-herbi\n4 Greater short-tailed shrew Blarina-omni    \n5 Cow                        Bos-herbi       \n6 Three-toed sloth           Bradypus-herbi  \n\n\n\n\nEn esta variable genus_vore vemos que la información de dos cosas se encuentran separadas por el caracter -. Veamos entonces como podemos separarlas en dos columnas distintas con la ayuda de tidyr:\n\n\n\n\nlibrary(tidyr)\nej_separate %&gt;%\n  separate(`genus_vore`,\n           into = c(\"genus\", \"vore\"), sep = \"-\")"
+  },
+  {
+    "objectID": "index.html#dividiendo-columnas-3",
+    "href": "index.html#dividiendo-columnas-3",
+    "title": "Módulo 3: Introducción al tidyverse",
+    "section": "Dividiendo columnas",
+    "text": "Dividiendo columnas\n\nhead(ej_separate)\n\n# A tibble: 6 × 2\n  name                       genus_vore      \n  &lt;chr&gt;                      &lt;chr&gt;           \n1 Cheetah                    Acinonyx-carni  \n2 Owl monkey                 Aotus-omni      \n3 Mountain beaver            Aplodontia-herbi\n4 Greater short-tailed shrew Blarina-omni    \n5 Cow                        Bos-herbi       \n6 Three-toed sloth           Bradypus-herbi  \n\n\n\nEn esta variable genus_vore vemos que la información de dos cosas se encuentran separadas por el caracter -. Veamos entonces como podemos separarlas en dos columnas distintas con la ayuda de tidyr:\n\n\nlibrary(tidyr)\nej_separate %&gt;%\n  separate(`genus_vore`,\n           into = c(\"genus\", \"vore\"), sep = \"-\")\n\n# A tibble: 83 × 3\n   name                       genus       vore \n   &lt;chr&gt;                      &lt;chr&gt;       &lt;chr&gt;\n 1 Cheetah                    Acinonyx    carni\n 2 Owl monkey                 Aotus       omni \n 3 Mountain beaver            Aplodontia  herbi\n 4 Greater short-tailed shrew Blarina     omni \n 5 Cow                        Bos         herbi\n 6 Three-toed sloth           Bradypus    herbi\n 7 Northern fur seal          Callorhinus carni\n 8 Vesper mouse               Calomys     NA   \n 9 Dog                        Canis       carni\n10 Roe deer                   Capreolus   herbi\n# ℹ 73 more rows"
+  },
+  {
+    "objectID": "index.html#manos-a-la-obra",
+    "href": "index.html#manos-a-la-obra",
+    "title": "Módulo 3: Introducción al tidyverse",
+    "section": "¡Manos a la obra!",
+    "text": "¡Manos a la obra!\n\nCrea un proyecto en R (como ya lo vimos en el módulo anterior).\nCrea dentro de este proyecto una carpeta de nombre “datos”\nIngresa a la sección de “Materiales y recursos” del curso y descarga el archivo comprimido datos.zip.\nExtrae los archivos del .zip en tu carpeta de “datos”."
+  },
+  {
+    "objectID": "index.html#exportación-de-datos-2",
+    "href": "index.html#exportación-de-datos-2",
+    "title": "Módulo 3: Introducción al tidyverse",
+    "section": "Exportación de datos",
+    "text": "Exportación de datos\nArchivos .xlsx\n\nreadxl no tiene funcionalidad para exportar tablas con extensión .xlsx\n\n\n\nUsaremos el paquete writexl\n\n\ninstall.packages(\"writexl\")\nlibrary(writexl)\nwrite_xlsx(rotavirus, \"outputs/copia_rotavirus.xlsx\")"
+  },
+  {
+    "objectID": "index.html#antes-de-continuar-1",
+    "href": "index.html#antes-de-continuar-1",
+    "title": "Módulo 3: Introducción al tidyverse",
+    "section": "Antes de continuar…",
+    "text": "Antes de continuar…\n\n\nEs importante mencionar las formas en las que podemos indicarle a R los paths de los archivos que contienen nuestros datos:\n\nCrearlos manualmente\nDirectamente dentro de R\nCopiarlos desde el explorador de Windows\n\nPara usuarios de Windows (esto no sucede con sistemas operativos MacOS ni basados en Unix), la manera en que los subdirectorios están separados es con \\. \\ es un caracter especial que puede producir errores dentro de R, por ello, si usamos la última opción listada, debemos cambiarlos por /"
   }
 ]

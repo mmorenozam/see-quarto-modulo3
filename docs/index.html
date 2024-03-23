@@ -585,8 +585,8 @@ Mauricio Moreno, PhD
 </div>
 </div>
 </section>
-<section id="operador-de-cascada-pipeline-operator" class="slide level2 smaller">
-<h2>Operador de cascada (<em>pipeline operator</em>)</h2>
+<section id="operador-de-cascada-pipe-operator" class="slide level2 smaller">
+<h2>Operador de cascada (<em>pipe operator</em>)</h2>
 <div>
 <ul>
 <li class="fragment"><p>Antes de comenzar directamente con <code>dplyr</code>, daremos un vistazo al operador de cascada: <code>%&gt;%</code>.</p></li>
@@ -599,6 +599,23 @@ Mauricio Moreno, PhD
 <li class="fragment"><p>Noten como el uso <code>%&gt;%</code> nos facilita la interpretación de la secuencia de acciones.</p></li>
 </ul>
 </div>
+</section>
+<section id="operador-de-cascada-nativo-de-r" class="slide level2">
+<h2>Operador de cascada nativo de R</h2>
+<div>
+<ul>
+<li class="fragment"><p>A partir de la versión de R 4.1.0, R tiene un operador de cascada nativo: <code>|&gt;</code>.</p></li>
+<li class="fragment"><p>Este es parte del paquete <code>magrittr</code>.</p></li>
+<li class="fragment"><p>En principio no existe diferencia entre <code>%&gt;%</code> y <code>|&gt;</code>.</p></li>
+<li class="fragment"><p>Un incoveniente que se puede presentar es el utilizar el operador nativo en combinación con tutoriales de <code>dplyr</code> creados en versiones de R anteriores a 4.1.0.</p></li>
+<li class="fragment"><p>De aquí en adelante, usaremos el operador de <code>dplyr</code>.</p></li>
+</ul>
+</div>
+</section></section>
+<section>
+<section id="operaciones-básicas-con-dplyr" class="title-slide slide level1 center">
+<h1>Operaciones básicas con <code>dplyr</code></h1>
+
 </section>
 <section id="filtrando-filas" class="slide level2 smaller">
 <h2>Filtrando filas</h2>
@@ -931,11 +948,11 @@ Mauricio Moreno, PhD
 </div>
 </div>
 </section>
-<section id="separando-columnas" class="slide level2 smaller">
-<h2>Separando columnas</h2>
+<section id="dividiendo-columnas" class="slide level2 smaller">
+<h2>Dividiendo columnas</h2>
 <div>
 <ul>
-<li class="fragment"><p>Idealmente, deberíamos tratar de contar con un solo tipo de información por columna (“Una sola cosa a la vez”, slide #9)</p></li>
+<li class="fragment"><p>Idealmente, deberíamos tratar de contar con un solo tipo de información por columna (“Una sola cosa a la vez”)</p></li>
 <li class="fragment"><p>Sin embargo, sobretodo cuando recibimos datos de terceros, nos podemos encontrar con este problema.</p></li>
 <li class="fragment"><p>Si el registro de datos fue consistente, es posible separarlo fácilmente usando la función <code>separate</code> de <code>tidyr</code></p></li>
 <li class="fragment"><p><code>tidyr</code> es otro paquete del <code>tidyverse</code> que ofrece funciones complementarias para manejo de tablas.</p></li>
@@ -952,8 +969,8 @@ Mauricio Moreno, PhD
 </div>
 </div>
 </section>
-<section id="separando-columnas-1" class="slide level2 smaller" data-visibility="uncounted" data-auto-animate="true">
-<h2 data-id="quarto-animate-title">Separando columnas</h2>
+<section id="dividiendo-columnas-1" class="slide level2 smaller" data-visibility="uncounted" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Dividiendo columnas</h2>
 <ul>
 <li><p>Idealmente, deberíamos tratar de contar con un solo tipo de información por columna (“Una sola cosa a la vez”, slide #9)</p></li>
 <li><p>Sin embargo, sobretodo cuando recibimos datos de terceros, nos podemos encontrar con este problema.</p></li>
@@ -980,8 +997,8 @@ Mauricio Moreno, PhD
 </div>
 </div>
 </section>
-<section id="separando-columnas-2" class="slide level2 smaller" data-visibility="uncounted" data-auto-animate="true">
-<h2 data-id="quarto-animate-title">Separando columnas</h2>
+<section id="dividiendo-columnas-2" class="slide level2 smaller" data-visibility="uncounted" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Dividiendo columnas</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a><span class="fu">head</span>(ej_separate)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1010,8 +1027,8 @@ Mauricio Moreno, PhD
 </div>
 </div>
 </section>
-<section id="separando-columnas-3" class="slide level2 smaller" data-visibility="uncounted" data-auto-animate="true">
-<h2 data-id="quarto-animate-title">Separando columnas</h2>
+<section id="dividiendo-columnas-3" class="slide level2 smaller" data-visibility="uncounted" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Dividiendo columnas</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1"></a><span class="fu">head</span>(ej_separate)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1356,63 +1373,14 @@ Mauricio Moreno, PhD
 </ul>
 </div>
 </section>
-<section id="preparando-el-ambiente-de-trabajo" class="slide level2 smaller">
-<h2>Preparando el ambiente de trabajo</h2>
+<section id="manos-a-la-obra" class="slide level2">
+<h2>¡Manos a la obra!</h2>
 <ol type="1">
-<li>Crea una carpeta por cada proyecto de trabajo en R en donde tu desees. Puede ser algo como:</li>
+<li><p>Crea un proyecto en R (como ya lo vimos en el módulo anterior).</p></li>
+<li><p>Crea dentro de este proyecto una carpeta de nombre “datos”</p></li>
+<li><p>Ingresa a la sección de <a href="https://mmorenozam.github.io/see-quarto-website/materiales.html" target="_blank">“Materiales y recursos”</a> del curso y descarga el archivo comprimido datos.zip.</p></li>
+<li><p>Extrae los archivos del .zip en tu carpeta de “datos”.</p></li>
 </ol>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="images/directorio.png" height="75"></p>
-</figure>
-</div>
-<div class="fragment">
-<ol start="2" type="1">
-<li>Ingresa a la sección de <a href="https://mmorenozam.github.io/progR-website/materiales.html" target="_blank">“Materiales y recursos”</a> del curso y descarga el archivo comprimido datos.zip.</li>
-</ol>
-</div>
-<div class="fragment">
-<ol start="3" type="1">
-<li>Extrae los archivos en el directorio que creaste.</li>
-</ol>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="images/directorio2.png" height="250"></p>
-</figure>
-</div>
-</div>
-</section>
-<section id="preparando-el-ambiente-de-trabajo-1" class="slide level2 smaller" data-visibility="uncounted">
-<h2>Preparando el ambiente de trabajo</h2>
-<ol start="4" type="1">
-<li>En R, crea un nuevo script donde en la primera línea utilizaremos la función <code>setwd</code></li>
-</ol>
-<div>
-<ul>
-<li class="fragment"><p><code>setwd</code> nos permitirá predeterminar la ubicación de nuestro directorio de trabajo.</p></li>
-<li class="fragment"><p>Como argumento, utiliza la dirección del directorio.</p>
-<ul>
-<li class="fragment"><p>Podemos copiar la dirección desde el explorador de Windows</p></li>
-<li class="fragment"><p>ó, podemos guardar el archivo de R en nuestro directorio, y obtener la dirección desde la sesión de RStudio</p></li>
-</ul></li>
-<li class="fragment"><p>En mi caso, la primera línea de este archivo de R queda de la siguiente forma:</p></li>
-</ul>
-</div>
-<div class="fragment">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1"></a><span class="fu">setwd</span>(<span class="st">"C:/Users/mmore/Documents/curso_estadistica/ejemplos"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-<div class="fragment">
-<ul>
-<li>De esta manera, los objetos que importemos y exportemos dentro de la sesión de R con este archivo serán contenidos en nuestro directorio de trabajo.</li>
-</ul>
-</div>
-<div class="fragment">
-<ol start="5" type="1">
-<li>Guarda el archivo de R en el directorio que creaste (en caso de no haberlo hecho antes).</li>
-</ol>
-</div>
 </section>
 <section id="importando-archivos-.csv" class="slide level2">
 <h2>Importando archivos .csv</h2>
@@ -1437,20 +1405,16 @@ Mauricio Moreno, PhD
 <h2 data-id="quarto-animate-title">Importando archivos .csv</h2>
 <p><strong>R base</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb57" data-code-line-numbers="1|3|4"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb57-1" class="hljs-ln-code"><a href="#cb57-1"></a><span class="fu">setwd</span>(<span class="st">"C:/Users/mmore/Documents/curso_estadistica/ejemplos"</span>)</span>
-<span id="cb57-2" class="hljs-ln-code"><a href="#cb57-2"></a></span>
-<span id="cb57-3" class="hljs-ln-code"><a href="#cb57-3"></a>ranas <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"touchon.csv"</span>)</span>
-<span id="cb57-4" class="hljs-ln-code"><a href="#cb57-4"></a><span class="fu">head</span>(ranas)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb56" data-code-line-numbers="1|2"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb56-1" class="hljs-ln-code"><a href="#cb56-1"></a>ranas <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"datos/touchon.csv"</span>)</span>
+<span id="cb56-2" class="hljs-ln-code"><a href="#cb56-2"></a><span class="fu">head</span>(ranas)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="importando-archivos-.csv-3" class="slide level2 smaller" data-visibility="uncounted" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Importando archivos .csv</h2>
 <p><strong>R base</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb58-1" class="hljs-ln-code"><a href="#cb58-1"></a><span class="fu">setwd</span>(<span class="st">"C:/Users/mmore/Documents/curso_estadistica/ejemplos"</span>)</span>
-<span id="cb58-2" class="hljs-ln-code"><a href="#cb58-2"></a></span>
-<span id="cb58-3" class="hljs-ln-code"><a href="#cb58-3"></a>ranas <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"touchon.csv"</span>)</span>
-<span id="cb58-4" class="hljs-ln-code"><a href="#cb58-4"></a><span class="fu">head</span>(ranas)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb57-1" class="hljs-ln-code"><a href="#cb57-1"></a>ranas <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"datos/touchon.csv"</span>)</span>
+<span id="cb57-2" class="hljs-ln-code"><a href="#cb57-2"></a><span class="fu">head</span>(ranas)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
@@ -1475,20 +1439,18 @@ Mauricio Moreno, PhD
 <h2 data-id="quarto-animate-title">Importando archivos .csv</h2>
 <p><strong><code>tidyverse</code></strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb60" data-code-line-numbers="1|2|3|4"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb60-1" class="hljs-ln-code"><a href="#cb60-1"></a><span class="fu">setwd</span>(<span class="st">"C:/Users/mmore/Documents/curso_estadistica/ejemplos"</span>)</span>
-<span id="cb60-2" class="hljs-ln-code"><a href="#cb60-2"></a><span class="fu">library</span>(readr)</span>
-<span id="cb60-3" class="hljs-ln-code"><a href="#cb60-3"></a>ranas <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"touchon.csv"</span>)</span>
-<span id="cb60-4" class="hljs-ln-code"><a href="#cb60-4"></a>ranas</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb59" data-code-line-numbers="1|2|3"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb59-1" class="hljs-ln-code"><a href="#cb59-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb59-2" class="hljs-ln-code"><a href="#cb59-2"></a>ranas <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"datos/touchon.csv"</span>)</span>
+<span id="cb59-3" class="hljs-ln-code"><a href="#cb59-3"></a>ranas</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="importando-archivos-.csv-5" class="slide level2 smaller" data-visibility="uncounted" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Importando archivos .csv</h2>
 <p><strong><code>tidyverse</code></strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb61-1" class="hljs-ln-code"><a href="#cb61-1"></a><span class="fu">setwd</span>(<span class="st">"C:/Users/mmore/Documents/curso_estadistica/ejemplos"</span>)</span>
-<span id="cb61-2" class="hljs-ln-code"><a href="#cb61-2"></a><span class="fu">library</span>(readr)</span>
-<span id="cb61-3" class="hljs-ln-code"><a href="#cb61-3"></a>ranas <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"touchon.csv"</span>)</span>
-<span id="cb61-4" class="hljs-ln-code"><a href="#cb61-4"></a>ranas</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb60-1" class="hljs-ln-code"><a href="#cb60-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb60-2" class="hljs-ln-code"><a href="#cb60-2"></a>ranas <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"datos/touchon.csv"</span>)</span>
+<span id="cb60-3" class="hljs-ln-code"><a href="#cb60-3"></a>ranas</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
@@ -1528,9 +1490,9 @@ Mauricio Moreno, PhD
 </ul>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb63" data-code-line-numbers="1|2|3"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb63-1" class="hljs-ln-code"><a href="#cb63-1"></a><span class="fu">library</span>(readxl)</span>
-<span id="cb63-2" class="hljs-ln-code"><a href="#cb63-2"></a>rotavirus <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"rotXLS.xlsx"</span>)</span>
-<span id="cb63-3" class="hljs-ln-code"><a href="#cb63-3"></a>rotavirus</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb62" data-code-line-numbers="1|2|3"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb62-1" class="hljs-ln-code"><a href="#cb62-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb62-2" class="hljs-ln-code"><a href="#cb62-2"></a>rotavirus <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"datos/rotXLS.xlsx"</span>)</span>
+<span id="cb62-3" class="hljs-ln-code"><a href="#cb62-3"></a>rotavirus</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
@@ -1540,9 +1502,9 @@ Mauricio Moreno, PhD
 <li>Usaremos el archivo rotXLS.xlsx y el paquete <code>readxl</code></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1"></a><span class="fu">library</span>(readxl)</span>
-<span id="cb64-2"><a href="#cb64-2"></a>rotavirus <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"rotXLS.xlsx"</span>)</span>
-<span id="cb64-3"><a href="#cb64-3"></a>rotavirus</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb63-2"><a href="#cb63-2"></a>rotavirus <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"datos/rotXLS.xlsx"</span>)</span>
+<span id="cb63-3"><a href="#cb63-3"></a>rotavirus</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1,043 × 12
    date                cases  week incidence    FM     RSK SHK_TAG    PM    TMK
@@ -1569,16 +1531,26 @@ Mauricio Moreno, PhD
 </section>
 <section id="exportación-de-datos" class="slide level2">
 <h2>Exportación de datos</h2>
-<p><strong>Archivos .csv</strong></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb66" data-code-line-numbers="2|5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1"></a><span class="co"># con R base</span></span>
-<span id="cb66-2"><a href="#cb66-2"></a><span class="fu">write.csv</span>(ranas, <span class="st">"copia_touchon.csv"</span>, <span class="at">row.names =</span> F)</span>
-<span id="cb66-3"><a href="#cb66-3"></a></span>
-<span id="cb66-4"><a href="#cb66-4"></a><span class="co"># con tidyverse</span></span>
-<span id="cb66-5"><a href="#cb66-5"></a><span class="fu">write_csv</span>(ranas, <span class="st">"copia_touchon.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div>
+<ul>
+<li class="fragment"><p>Como habíamos mencionado, una buena práctica en la organización de nuestros proyectos es tener una buena estructura de los directorios dentro de los mismos.</p></li>
+<li class="fragment"><p>Una de estas es el crear nuevas carpetas donde guardemos los <em>outputs</em> de nuestros análisis.</p></li>
+<li class="fragment"><p>Crearemos entonces, una carpeta de nombre “outputs” y exportaremos ahí los datos a continuación.</p></li>
+</ul>
 </div>
 </section>
 <section id="exportación-de-datos-1" class="slide level2" data-visibility="uncounted">
+<h2>Exportación de datos</h2>
+<p><strong>Archivos .csv</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb65" data-code-line-numbers="2|5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1"></a><span class="co"># con R base</span></span>
+<span id="cb65-2"><a href="#cb65-2"></a><span class="fu">write.csv</span>(ranas, <span class="st">"outputs/copia_touchon.csv"</span>, <span class="at">row.names =</span> F)</span>
+<span id="cb65-3"><a href="#cb65-3"></a></span>
+<span id="cb65-4"><a href="#cb65-4"></a><span class="co"># con tidyverse</span></span>
+<span id="cb65-5"><a href="#cb65-5"></a><span class="fu">write_csv</span>(ranas, <span class="st">"outputs/copia_touchon.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="exportación-de-datos-2" class="slide level2" data-visibility="uncounted">
 <h2>Exportación de datos</h2>
 <p><strong>Archivos .xlsx</strong></p>
 <ul>
@@ -1589,10 +1561,24 @@ Mauricio Moreno, PhD
 <li>Usaremos el paquete <code>writexl</code></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb67" data-code-line-numbers="1|2|3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1"></a><span class="fu">install.packages</span>(<span class="st">"writexl"</span>)</span>
-<span id="cb67-2"><a href="#cb67-2"></a><span class="fu">library</span>(writexl)</span>
-<span id="cb67-3"><a href="#cb67-3"></a><span class="fu">write_xlsx</span>(rotavirus, <span class="st">"copia_rotavirus.xlsx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb66" data-code-line-numbers="1|2|3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1"></a><span class="fu">install.packages</span>(<span class="st">"writexl"</span>)</span>
+<span id="cb66-2"><a href="#cb66-2"></a><span class="fu">library</span>(writexl)</span>
+<span id="cb66-3"><a href="#cb66-3"></a><span class="fu">write_xlsx</span>(rotavirus, <span class="st">"outputs/copia_rotavirus.xlsx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</div>
+</section>
+<section id="antes-de-continuar-1" class="slide level2">
+<h2>Antes de continuar…</h2>
+<div>
+<ul>
+<li class="fragment"><p>Es importante mencionar las formas en las que podemos indicarle a R los <em>paths</em> de los archivos que contienen nuestros datos:</p>
+<ul>
+<li class="fragment"><p>Crearlos manualmente</p></li>
+<li class="fragment"><p>Directamente dentro de R</p></li>
+<li class="fragment"><p>Copiarlos desde el explorador de Windows</p></li>
+</ul></li>
+<li class="fragment"><p>Para usuarios de Windows (esto no sucede con sistemas operativos MacOS ni basados en Unix), la manera en que los subdirectorios están separados es con <code>\</code>. <code>\</code> es un caracter especial que puede producir errores dentro de R, por ello, si usamos la última opción listada, debemos cambiarlos por <code>/</code></p></li>
+</ul>
 </div>
 </section></section>
 <section>
@@ -1627,11 +1613,11 @@ Mauricio Moreno, PhD
 </ul>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb68" data-code-line-numbers="1|2|4-5"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb68-1" class="hljs-ln-code"><a href="#cb68-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb68-2" class="hljs-ln-code"><a href="#cb68-2"></a><span class="fu">library</span>(tidyr)</span>
-<span id="cb68-3" class="hljs-ln-code"><a href="#cb68-3"></a></span>
-<span id="cb68-4" class="hljs-ln-code"><a href="#cb68-4"></a>tabla_larga <span class="ot">&lt;-</span> airquality <span class="sc">%&gt;%</span></span>
-<span id="cb68-5" class="hljs-ln-code"><a href="#cb68-5"></a>  <span class="fu">pivot_longer</span>(<span class="fu">everything</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb67" data-code-line-numbers="1|2|4-5"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb67-1" class="hljs-ln-code"><a href="#cb67-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb67-2" class="hljs-ln-code"><a href="#cb67-2"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb67-3" class="hljs-ln-code"><a href="#cb67-3"></a></span>
+<span id="cb67-4" class="hljs-ln-code"><a href="#cb67-4"></a>tabla_larga <span class="ot">&lt;-</span> airquality <span class="sc">%&gt;%</span></span>
+<span id="cb67-5" class="hljs-ln-code"><a href="#cb67-5"></a>  <span class="fu">pivot_longer</span>(<span class="fu">everything</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
@@ -1642,13 +1628,13 @@ Mauricio Moreno, PhD
 <li>Utilizaremos la función <code>pivot_longer</code> del paquete <code>tidyr</code> con la tabla de base <code>air_quality</code></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb69-1" class="hljs-ln-code"><a href="#cb69-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb69-2" class="hljs-ln-code"><a href="#cb69-2"></a><span class="fu">library</span>(tidyr)</span>
-<span id="cb69-3" class="hljs-ln-code"><a href="#cb69-3"></a></span>
-<span id="cb69-4" class="hljs-ln-code"><a href="#cb69-4"></a>tabla_larga <span class="ot">&lt;-</span> airquality <span class="sc">%&gt;%</span></span>
-<span id="cb69-5" class="hljs-ln-code"><a href="#cb69-5"></a>  <span class="fu">pivot_longer</span>(<span class="fu">everything</span>())</span>
-<span id="cb69-6" class="hljs-ln-code"><a href="#cb69-6"></a></span>
-<span id="cb69-7" class="hljs-ln-code"><a href="#cb69-7"></a>tabla_larga</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb68-1" class="hljs-ln-code"><a href="#cb68-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb68-2" class="hljs-ln-code"><a href="#cb68-2"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb68-3" class="hljs-ln-code"><a href="#cb68-3"></a></span>
+<span id="cb68-4" class="hljs-ln-code"><a href="#cb68-4"></a>tabla_larga <span class="ot">&lt;-</span> airquality <span class="sc">%&gt;%</span></span>
+<span id="cb68-5" class="hljs-ln-code"><a href="#cb68-5"></a>  <span class="fu">pivot_longer</span>(<span class="fu">everything</span>())</span>
+<span id="cb68-6" class="hljs-ln-code"><a href="#cb68-6"></a></span>
+<span id="cb68-7" class="hljs-ln-code"><a href="#cb68-7"></a>tabla_larga</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 918 × 2
    name    value
@@ -1675,8 +1661,8 @@ Mauricio Moreno, PhD
 <li><p>Podemos asignar nombres.</p></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb71-1" class="hljs-ln-code"><a href="#cb71-1"></a>tabla_larga <span class="ot">&lt;-</span> airquality <span class="sc">%&gt;%</span></span>
-<span id="cb71-2" class="hljs-ln-code"><a href="#cb71-2"></a>  <span class="fu">pivot_longer</span>(<span class="fu">everything</span>(), <span class="at">names_to =</span> <span class="st">"variable"</span>, <span class="at">values_to =</span> <span class="st">"valores"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb70-1" class="hljs-ln-code"><a href="#cb70-1"></a>tabla_larga <span class="ot">&lt;-</span> airquality <span class="sc">%&gt;%</span></span>
+<span id="cb70-2" class="hljs-ln-code"><a href="#cb70-2"></a>  <span class="fu">pivot_longer</span>(<span class="fu">everything</span>(), <span class="at">names_to =</span> <span class="st">"variable"</span>, <span class="at">values_to =</span> <span class="st">"valores"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="transformación-de-formatos-4" class="slide level2 smaller" data-visibility="uncounted" data-auto-animate="true">
@@ -1688,11 +1674,11 @@ Mauricio Moreno, PhD
 <li><p>Mantener columnas en la transformación.</p></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb72-1" class="hljs-ln-code"><a href="#cb72-1"></a>tabla_larga <span class="ot">&lt;-</span> airquality <span class="sc">%&gt;%</span></span>
-<span id="cb72-2" class="hljs-ln-code"><a href="#cb72-2"></a>  <span class="fu">pivot_longer</span>(<span class="fu">c</span>(Ozone, Solar.R, Wind, Temp), </span>
-<span id="cb72-3" class="hljs-ln-code"><a href="#cb72-3"></a>               <span class="at">names_to =</span> <span class="st">"variable"</span>, <span class="at">values_to =</span> <span class="st">"valores"</span>)</span>
-<span id="cb72-4" class="hljs-ln-code"><a href="#cb72-4"></a></span>
-<span id="cb72-5" class="hljs-ln-code"><a href="#cb72-5"></a>tabla_larga</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb71-1" class="hljs-ln-code"><a href="#cb71-1"></a>tabla_larga <span class="ot">&lt;-</span> airquality <span class="sc">%&gt;%</span></span>
+<span id="cb71-2" class="hljs-ln-code"><a href="#cb71-2"></a>  <span class="fu">pivot_longer</span>(<span class="fu">c</span>(Ozone, Solar.R, Wind, Temp), </span>
+<span id="cb71-3" class="hljs-ln-code"><a href="#cb71-3"></a>               <span class="at">names_to =</span> <span class="st">"variable"</span>, <span class="at">values_to =</span> <span class="st">"valores"</span>)</span>
+<span id="cb71-4" class="hljs-ln-code"><a href="#cb71-4"></a></span>
+<span id="cb71-5" class="hljs-ln-code"><a href="#cb71-5"></a>tabla_larga</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 612 × 4
    Month   Day variable valores
@@ -1718,9 +1704,9 @@ Mauricio Moreno, PhD
 <li>Utilizaremos la función <code>pivot_wider</code></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb74" data-code-line-numbers="1-3"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb74-1" class="hljs-ln-code"><a href="#cb74-1"></a>tabla_ancha <span class="ot">&lt;-</span> tabla_larga <span class="sc">%&gt;%</span></span>
-<span id="cb74-2" class="hljs-ln-code"><a href="#cb74-2"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> <span class="st">"variable"</span>,</span>
-<span id="cb74-3" class="hljs-ln-code"><a href="#cb74-3"></a>              <span class="at">values_from =</span> <span class="st">"valores"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb73" data-code-line-numbers="1-3"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb73-1" class="hljs-ln-code"><a href="#cb73-1"></a>tabla_ancha <span class="ot">&lt;-</span> tabla_larga <span class="sc">%&gt;%</span></span>
+<span id="cb73-2" class="hljs-ln-code"><a href="#cb73-2"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> <span class="st">"variable"</span>,</span>
+<span id="cb73-3" class="hljs-ln-code"><a href="#cb73-3"></a>              <span class="at">values_from =</span> <span class="st">"valores"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="transformación-de-formatos-6" class="slide level2 smaller" data-visibility="uncounted" data-auto-animate="true">
@@ -1730,11 +1716,11 @@ Mauricio Moreno, PhD
 <li>Utilizaremos la función <code>pivot_wider</code></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb75-1" class="hljs-ln-code"><a href="#cb75-1"></a>tabla_ancha <span class="ot">&lt;-</span> tabla_larga <span class="sc">%&gt;%</span></span>
-<span id="cb75-2" class="hljs-ln-code"><a href="#cb75-2"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> <span class="st">"variable"</span>,</span>
-<span id="cb75-3" class="hljs-ln-code"><a href="#cb75-3"></a>              <span class="at">values_from =</span> <span class="st">"valores"</span>)</span>
-<span id="cb75-4" class="hljs-ln-code"><a href="#cb75-4"></a></span>
-<span id="cb75-5" class="hljs-ln-code"><a href="#cb75-5"></a>tabla_ancha</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb74-1" class="hljs-ln-code"><a href="#cb74-1"></a>tabla_ancha <span class="ot">&lt;-</span> tabla_larga <span class="sc">%&gt;%</span></span>
+<span id="cb74-2" class="hljs-ln-code"><a href="#cb74-2"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> <span class="st">"variable"</span>,</span>
+<span id="cb74-3" class="hljs-ln-code"><a href="#cb74-3"></a>              <span class="at">values_from =</span> <span class="st">"valores"</span>)</span>
+<span id="cb74-4" class="hljs-ln-code"><a href="#cb74-4"></a></span>
+<span id="cb74-5" class="hljs-ln-code"><a href="#cb74-5"></a>tabla_ancha</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 153 × 6
    Month   Day Ozone Solar.R  Wind  Temp
@@ -1807,13 +1793,13 @@ Mauricio Moreno, PhD
 </table>
 <p>En el siguiente código:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1"></a>tabla_cars <span class="ot">&lt;-</span> mtcars</span>
-<span id="cb77-2"><a href="#cb77-2"></a><span class="fu">head</span>(tabla_cars)</span>
-<span id="cb77-3"><a href="#cb77-3"></a>tabla_cars<span class="sc">$</span>marca <span class="ot">&lt;-</span> <span class="fu">row.names</span>(tabla_cars)</span>
-<span id="cb77-4"><a href="#cb77-4"></a>tabla_cars <span class="sc">%&gt;%</span> </span>
-<span id="cb77-5"><a href="#cb77-5"></a>  <span class="fu">pivot_longer</span>(<span class="sc">-</span><span class="fu">c</span>(<span class="st">"marca"</span>), </span>
-<span id="cb77-6"><a href="#cb77-6"></a>               <span class="at">names_to =</span> <span class="st">"variable"</span>, </span>
-<span id="cb77-7"><a href="#cb77-7"></a>               <span class="at">values_to =</span> <span class="st">"valores"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1"></a>tabla_cars <span class="ot">&lt;-</span> mtcars</span>
+<span id="cb76-2"><a href="#cb76-2"></a><span class="fu">head</span>(tabla_cars)</span>
+<span id="cb76-3"><a href="#cb76-3"></a>tabla_cars<span class="sc">$</span>marca <span class="ot">&lt;-</span> <span class="fu">row.names</span>(tabla_cars)</span>
+<span id="cb76-4"><a href="#cb76-4"></a>tabla_cars <span class="sc">%&gt;%</span> </span>
+<span id="cb76-5"><a href="#cb76-5"></a>  <span class="fu">pivot_longer</span>(<span class="sc">-</span><span class="fu">c</span>(<span class="st">"marca"</span>), </span>
+<span id="cb76-6"><a href="#cb76-6"></a>               <span class="at">names_to =</span> <span class="st">"variable"</span>, </span>
+<span id="cb76-7"><a href="#cb76-7"></a>               <span class="at">values_to =</span> <span class="st">"valores"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <table>
 <colgroup>
